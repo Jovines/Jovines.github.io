@@ -1,34 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>新的一篇</title>
-      <link href="/2019/10/01/%E6%96%B0%E7%9A%84%E4%B8%80%E7%AF%87/"/>
-      <url>/2019/10/01/%E6%96%B0%E7%9A%84%E4%B8%80%E7%AF%87/</url>
-      
-        <content type="html"><![CDATA[<h2 id="测试">测试<a href="2019/10/01/新的一篇#测试"></a></h2>]]></content>
-      
-      
+<search>
+  <entry>
+    <title><![CDATA[新的一篇]]></title>
+    <url>%2F2019%2F10%2F01%2F%E6%96%B0%E7%9A%84%E4%B8%80%E7%AF%87%2F</url>
+    <content type="text"><![CDATA[测试]]></content>
       <categories>
-          
-          <category> 拉拉 </category>
-          
+        <category>拉拉</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 测试 </tag>
-            
-            <tag> 嘿嘿 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>测试</tag>
+        <tag>嘿嘿</tag>
+      </tags>
+  </entry>
 </search>
