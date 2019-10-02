@@ -1,9 +1,8 @@
----
 title: 完美的hexo中插入图片的解决方案
-date: 2019-10-01 23:13:00
 tags:
-- hexo配置
+  - hexo配置
 categories: 兴趣
+date: 2019-10-01 23:13:00
 ---
 
 # 完美的hexo中插入图片的解决方案
