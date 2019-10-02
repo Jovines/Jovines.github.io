@@ -95,6 +95,6 @@ admin:
   username: 1246634075@qq.com
   password_hash: $2a$10$teqmn5ODm2XN4z6H66Oq3e9qBon94HhDFKbBZGHll1PmaUtCade8G
   secret: jon
-  deployCommand: 'hexo-pubish.bat'
+  deployCommand: './hexo-deploy.sh'
   
   
