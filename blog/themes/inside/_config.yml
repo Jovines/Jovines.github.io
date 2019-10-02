@@ -56,7 +56,7 @@ appearance:
   # Uses an architecture called "base16" (https://github.com/chriskempson/base16),
   # the default theme is a customized Atelier Dune Light theme,
   # please feel free to explore more.
-  highlight:
+  # highlight:
 
   # Default Light by Chris Kempson (http://chriskempson.com)
   # highlight: [
@@ -75,12 +75,12 @@ appearance:
   # ]
 
   # Tomorrow Night by Chris Kempson (http://chriskempson.com)
-  # highlight: [
-  #   '#1d1f21', '#282a2e', '#373b41', '#969896',
-  #   '#b4b7b4', '#c5c8c6', '#e0e0e0', '#ffffff',
-  #   '#cc6666', '#de935f', '#f0c674', '#b5bd68',
-  #   '#8abeb7', '#81a2be', '#b294bb', '#a3685a'
-  # ]
+  highlight: [
+    '#1d1f21', '#282a2e', '#373b41', '#969896',
+    '#b4b7b4', '#c5c8c6', '#e0e0e0', '#ffffff',
+    '#cc6666', '#de935f', '#f0c674', '#b5bd68',
+    '#8abeb7', '#81a2be', '#b294bb', '#a3685a'
+  ]
 
 # Sidebar profile
 profile:
@@ -288,19 +288,20 @@ copyright:
 # Built-in support Disqus (https://disqus.com) and LiveRe (https://livere.com),
 # for other comment system, see plugins
 comments:
-  # disqus:
-  #   shortname: disqus_shortname
-  #   # Or you can set disqus script URL directly
-  #   script: //disqus_shortname.disqus.com/embed.js
-  #   # Autoload, default to `true`, set to `false` to display a button
-  #   autoload: false
+  # disqus: 
+    # shortname: jonsblog-2
+    # Or you can set disqus script URL directly
+    # script: https://jonsblog-2.disqus.com/embed.js
+    
+    # Autoload, default to `true`, set to `false` to display a button
+    # autoload: true
 
-  # livere:
-  #   uid: livere_uid
+  livere:
+    uid: MTAyMC80NjkwNC8yMzQwNQ==
   #   # LiveRe script, default to `https://cdn-city.livere.com/js/embed.dist.js`
-  #   script:
+    # script: https://cdn-city.livere.com/js/embed.dist.js
   #   # Autoload, default to `true`, set to `false` to display a button
-  #   autoload: false
+    # autoload: true
 
 
 # ---------------------------------------------------------------
@@ -322,7 +323,7 @@ data_dir:
 favicon:
 
 # Google analytics
-# ga: UA-00000000-0
+ga: G-MRV9628GNV
 
 # SEO
 seo:
@@ -334,50 +335,50 @@ pwa:
   # Workbox (https://developers.google.com/web/tools/workbox/) is a JavaScript
   # libraries for adding offline support to web apps,
   # disabled by default, remove the hash to enable
-  # workbox:
-  #   # Workbox cdn, uses google by default, below is an example of using alicdn
-  #   cdn: https://g.alicdn.com/kg/workbox/3.3.0/workbox-sw.js
-  #   module_path_prefix: https://g.alicdn.com/kg/workbox/3.3.0/
-  #   # Expire time in hour, 4 by default, set to 0 to be permanent,
-  #   # caches will be forcibly deleted the next time the site is updated.
-  #   expire: 4
-  #   # The worker script name, `sw.js` by default
-  #   name: sw.js
-  #   # Custom rules
-  #   rules:
-  #     - name: jsdelivr
-  #       strategy: staleWhileRevalidate
-  #       regex: https://cdn\\.jsdelivr\\.net
-  #     - name: gtm
-  #       strategy: staleWhileRevalidate
-  #       regex: https://www\\.googletagmanager\\.com\?id=.*
-  #     - name: gravatar
-  #       strategy: staleWhileRevalidate
-  #       regex: https://www\\.gravatar\\.com
-  #     - name: theme
-  #       strategy: staleWhileRevalidate
-  #       regex: /.*\\.(?:js|css|woff2|png|jpg|gif)$
-  #     - name: cdn
-  #       strategy: staleWhileRevalidate
-  #       regex: https://cdn\\.yourdomain\\.com
-  #     - name: json
-  #       strategy: cacheFirst
-  #       regex: your_data_prefix/.*\\.json
+  workbox:
+    # Workbox cdn, uses google by default, below is an example of using alicdn
+    cdn: https://g.alicdn.com/kg/workbox/3.3.0/workbox-sw.js
+    module_path_prefix: https://g.alicdn.com/kg/workbox/3.3.0/
+    # Expire time in hour, 4 by default, set to 0 to be permanent,
+    # caches will be forcibly deleted the next time the site is updated.
+    expire: 4
+    # The worker script name, `sw.js` by default
+    name: sw.js
+    # Custom rules
+    rules:
+      - name: jsdelivr
+        strategy: staleWhileRevalidate
+        regex: https://cdn\\.jsdelivr\\.net
+      - name: gtm
+        strategy: staleWhileRevalidate
+        regex: https://www\\.googletagmanager\\.com\?id=.*
+      - name: gravatar
+        strategy: staleWhileRevalidate
+        regex: https://www\\.gravatar\\.com
+      - name: theme
+        strategy: staleWhileRevalidate
+        regex: /.*\\.(?:js|css|woff2|png|jpg|gif)$
+      - name: cdn
+        strategy: staleWhileRevalidate
+        regex: https://cdn\\.yourdomain\\.com
+      - name: json
+        strategy: cacheFirst
+        regex: your_data_prefix/.*\\.json
 
   # manifest.json
-  # manifest:
-  #   short_name:
-  #   name:
-  #   start_url: /
-  #   theme_color: '#2a2b33'
-  #   background_color: '#2a2b33'
-  #   icons:
-  #     - src: icon-194x194.png
-  #       sizes: 194x194 512x512
-  #       type: image/png
-  #     - src: icon-144x144.png
-  #       sizes: 144x144
-  #       type: image/png
+  manifest:
+    short_name:
+    name:
+    start_url: /
+    theme_color: '#2a2b33'
+    background_color: '#2a2b33'
+    icons:
+      - src: icon-194x194.png
+        sizes: 194x194 512x512
+        type: image/png
+      - src: icon-144x144.png
+        sizes: 144x144
+        type: image/png
 
 # Plugins
 # Inject html snippet to a specified position, Or global inject scripts/styles.

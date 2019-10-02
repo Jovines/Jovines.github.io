@@ -35,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -82,7 +82,19 @@ deploy:
   repo: https://github.com/Treeeeeeee/Treeeeeeee.github.io
   branch: master
 
+  
+  
 search:
   path: search.xml
   field: post
   format: html
+  
+  
+# hexo-admin authentification
+admin:
+  username: 1246634075@qq.com
+  password_hash: $2a$10$teqmn5ODm2XN4z6H66Oq3e9qBon94HhDFKbBZGHll1PmaUtCade8G
+  secret: jon
+  deployCommand: 'hexo-pubish.bat'
+  
+  
