@@ -94,6 +94,7 @@ profile:
   bio: If I found the export, I could lead you to walk together.
 
 # Sidebar navigation links
+
 menu:
   Home: /
   Search: /search
