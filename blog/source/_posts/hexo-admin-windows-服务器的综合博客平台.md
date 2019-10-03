@@ -1,19 +1,18 @@
 title: hexo+admin+windows+linux服务器的综合博客平台
 author: Jon
+
 tags:
 
   - 踩坑
+
   - 浪费了大好青春
-categories:
+  categories:
+
   - 兴趣
-date: 2019-10-03 16:43:00
+  date: 2019-10-03 16:43:00
+
+  
 ---
-<!-- new line -->
-![space](hexo-admin-windows-服务器的综合博客平台/nh-pluto-moonlight.jpg)
-<!-- new line -->
-
-
-
 # windows下的hexo+github博客搭建
 
 ## 博客搭建
@@ -50,7 +49,7 @@ date: 2019-10-03 16:43:00
 >
 > * 注册完成之后进入主页
 >
-> * ![Screenshot_1](hexo-admin-windows-服务器的综合博客平台\Screenshot_1.png)
+> * ![Screenshot](hexo-admin-windows-服务器的综合博客平台/Screenshot.png)
 >
 >   点击新建项目
 >
@@ -64,7 +63,7 @@ date: 2019-10-03 16:43:00
 >
 > * 然后按照下面的流程你就可以获得一个最简单的博客
 >
->   * ![1](hexo-admin-windows-服务器的综合博客平台\1.png)
+>   * ![m](hexo-admin-windows-服务器的综合博客平台/m.png)
 >
 >   * ![2](hexo-admin-windows-服务器的综合博客平台/2.png)
 >   * ![3](hexo-admin-windows-服务器的综合博客平台/3.png)
