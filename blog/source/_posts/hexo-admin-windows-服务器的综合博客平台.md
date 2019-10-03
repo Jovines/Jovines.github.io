@@ -1,4 +1,4 @@
-title: “错误记录：hexo+admin+windows+linux服务器的综合博客平台”
+title: hexo+admin+windows+linux服务器的综合博客平台
 author: Jon
 
 tags:

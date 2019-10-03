@@ -1,6 +1,7 @@
-title: System limit for number of file watchers reached 错误记录
+title: 错误记录：System limit for number of file watchers reached 
 author: Jon
 tags:
+
   - 不是特别坑
 categories:
   - 错误记录

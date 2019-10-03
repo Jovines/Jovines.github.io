@@ -1,4 +1,4 @@
-title: linux后台运行程序
+title: linux后台运行程序命令
 author: Jon
 tags:
   - 知识就是力量
