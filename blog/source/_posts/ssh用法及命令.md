@@ -4,6 +4,8 @@ date: 2019-10-07 17:34:23
 tags:
 ---
 
+[原文链接](https://blog.csdn.net/pipisorry/article/details/52269785)
+
 # 什么是SSH？
 
 简单说，SSH是一种网络协议，用于计算机之间的加密登录。如果一个用户从本地计算机，使用SSH协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。最早的时候，互联网通信都是明文通信，一旦被截获，内容就暴露无疑。1995年，芬兰学者Tatu Ylonen设计了SSH协议，将登录信息全部加密，成为互联网安全的一个基本解决方案，迅速在全世界获得推广，目前已经成为Linux系统的标准配置。
@@ -102,26 +104,6 @@ SSH的默认端口是22，也就是说，你的登录请求会送进远程主机
 
 上面这条命令表示，ssh直接连接远程主机的2222端口。
 如果你是第一次登录对方主机，系统会出现下面的提示：
-
-```
-    　　$ ssh user@host
-```
-
-​    　　The authenticity of host 'host (12.18.429.21)' can't be established.
-​    　　RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d.
-​    　　Are you sure you want to continue connecting (yes/no)?
-这段话的意思是，无法确认host主机的真实性，只知道它的公钥指纹，问你还想继续连接吗？
-所谓"公钥指纹"，是指公钥长度较长（这里采用RSA算法，长达1024位），很难比对，所以对其进行MD5计算，将它变成一个128位的指纹。上例中是98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d，再进行比较，就容易多了。
-很自然的一个问题就是，用户怎么知道远程主机的公钥指纹应该是多少？回答是没有好办法，远程主机必须在自己的网站上贴出公钥指纹，以便用户自行核对。
-假定经过风险衡量以后，用户决定接受这个远程主机的公钥。
-​    　　Are you sure you want to continue connecting (yes/no)? yes
-系统会出现一句提示，表示host主机已经得到认可。
-​    　　Warning: Permanently added 'host,12.18.429.21' (RSA) to the list of known hosts.
-然后，会要求输入密码。
-​    　　Password: (enter password)
-如果密码正确，就可以登录了。
-当远程主机的公钥被接受以后，它就会被保存在文件$HOME/.ssh/known_hosts之中。下次再连接这台主机，系统就会认出它的公钥已经保存在本地了，从而跳过警告部分，直接提示输入密码。
-每个SSH用户都有自己的known_hosts文件，此外系统也有一个这样的文件，通常是/etc/ssh/ssh_known_hosts，保存一些对所有用户都可信赖的远程主机的公钥。
 
 ​    　　The authenticity of host 'host (12.18.429.21)' can't be established.
 ​    　　RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d.
