@@ -10,7 +10,17 @@ date: 2019-10-12 14:34:00
 
 ---
 
+# 前言：
+
+**听我讲课也就图一乐，要想真学到东西还是得自己看书。**
+
+**大学学习最重要的莫过于是自学能力，我归纳的东西也许细节上有可能和书上有差异，因为我毕竟不是专业的，要想深究还是得对照书去看，我这只是对你们的一个引导**。
+
+
+
 **万物皆可为对象那么对象与对象之间肯定不是独立的，上节课谢磊学长讲了类的继承，那是一种最广泛的关系。今天我们了解一点更加抽象一点的东西，但是只要大家认真听我想还是会有所明白。**
+
+
 
 # 先来吹吹概念 <img src="java面向对象-接口和其他的类/6af89bc8gw1f8tzvsvn8gj20a00a00tp.jpg" alt="这和吃饭时扶碗是一个概念" style="zoom:25%;" />
 
@@ -90,6 +100,8 @@ date: 2019-10-12 14:34:00
 
 ## 接口
 
+### 基本概念
+
  接口，英文称作**interface**，在软件工程中，接口泛指供别人调用的方法或者函数。从这里，我们可以体会到Java语言设计者的初衷，它是对**行为**的抽象。在Java中，定一个接口的形式如下： 
 
 ```java
@@ -102,23 +114,174 @@ public interface InterfaceName {
 
 *  接口中的变量会被隐式地指定为public static final变量 
 
-  > 用其他关键词修饰会报错：
+  > 用其他关键词修饰会报错，例如：
   >
   > *  `public static final`，`private`
 
 *  方法会被隐式地指定为public abstract方法且只能是public abstract方法 
 
-  > 用其他关键词会报错：
+  > 用其他关键词会报错，例如：
   >
   > *  `private`、`protected`、`static`、 `final`
 
  接口是一种极度抽象的类型，它比抽象类更加“抽象”，并且一般情况下不在接口中定义变量。 
 
-
-
  可以看出，允许一个类遵循多个特定的接口。如果一个非抽象类遵循了某个接口，就必须实现该接口中的所有方法。对于遵循某个接口的抽象类，可以不实现该接口中的抽象方法。 
 
+### 回调
 
+可能初识这个名词觉得高大上和陌生，下面我仔细的讲解一下回调到底是什么呢？
+
+**我在知乎上看到一个高赞回答：**
+
+> 你到一个商店买东西，刚好你要的东西没有货，于是你在店员那里留下了你的电话，过了几天店里有货了，店员就打了你的电话，然后你接到电话后就到店里去取了货。在这个例子里，你的电话号码就叫回调函数，你把电话留给店员就叫登记回调函数，店里后来有货了叫做触发了回调关联的事件，店员给你打电话叫做调用回调函数，你到店里去取货叫做响应回调事件。回答完毕。
+
+这个回答在我学习接口时就看到了，但是当时还是一知半解，下面我们用代码来解释一下。
+
+首先我们定义一个接口`Notify`，通知接口
+
+```java
+public interface Notify {
+    public void call();
+}
+```
+
+我们定义一个`Shop`类
+
+```java
+public class Shop {
+
+    private Notify notify;
+
+    public void registrationNoticeMethod(Notify notify) {
+        this.notify = notify;
+    }
+
+    public void tellCustomerOutOfStock() {
+        System.out.println("对不起，我们这没有货了");
+    }
+
+    public void arrivalNotice() {
+        if (notify != null) {
+            notify.call();
+        }
+    }
+}
+```
+
+定义一个顾客类`Customer`，并且让顾客类实现`Notify`这个接口
+
+```java
+public class Customer implements Notify {
+    long phoneNum = 1234567;
+    @Override
+    public void call() {
+        System.out.println("打电话给" + phoneNum + "通知到货了");
+    }
+
+    public void goShopping() {
+        System.out.println("出门购物");
+    }
+}
+```
+
+主程序：
+
+```java
+ /**
+  * 主函数
+  */
+public class Main {
+    public static void main(String[] args) {
+        //实例化对象
+        Customer customer = new Customer();
+        Shop shop = new Shop();
+
+        //顾客出门购物
+        customer.goShopping();
+        pause();
+        shop.tellCustomerOutOfStock();
+        pause();
+        shop.registrationNoticeMethod(customer);
+        //第二天到货了
+        System.out.println("第二天");
+
+        shop.arrivalNotice();
+    }
+
+    /**
+     * 这个函数不用在意，只是为了演示效果，增加暂停
+     */
+    private static void pause() {
+        new Scanner(System.in).nextLine();
+    }
+}
+
+```
+
+输出：
+
+![TIM截图20191022120614](java面向对象-接口和其他的类/TIM截图20191022120614.png)
+
+[代码中的@Override注解说明](#这里其中有个注解)点击进入
+
+### 特殊的接口
+
+
+
+### 接口继承接口以及java8之后的接口多继承问题
+
+[详细解释链接](https://colobu.com/2014/11/04/Java-8-default-method-and-multiple-inheritance/)可能失效，我这里简述一下。
+
+#### java中不是没有多继承吗？
+
+**java8之前**
+
+是的，的确java中没有多继承，但是在java中接口是个例外，接口可以多继承，因为接口没有方法体，所以不论实现哪个父接口的中的方法都是没有关系的。
+
+**java8之后**
+
+java8之后出现了接口的默认实现，就像以下的模式：
+
+```java
+public interface A {
+    default void hhh() {
+        System.out.println("我是B");
+    }
+}
+```
+
+```java
+public interface B {
+    default void hhh() {
+        System.out.println("我是C");
+    }
+}
+```
+
+如果有个接口继承前两个接口，就必须把冲突的方法重写
+
+```java
+public interface C extends A, B {
+    @Override
+    default void hhh() {
+
+    }
+}
+```
+
+如果有个类同时实现这两个接口也需要实现冲突默认方法
+
+```java
+public class Test implements B, A {
+    @Override
+    public void hhh() {
+
+    }
+}
+```
+
+那么问题来了
 
 ## 抽象类
 
@@ -152,24 +315,125 @@ public abstract class Test {
 
 声明一个java抽象类只需要在正常的类的class之前加上`abstract`
 
-[跳转到](#实际的例子)
-
 #### 抽象方法声明
-
-
 
 ### 使用时需要注意的：
 
 - 抽象类**不能被实例化**，实例化的工作应该交**由它的子类来完成**，它**只需要有一个引用即可**。
+
+  > ```java
+  > /**
+  >  * 生物抽象类（因为没有一个具体的实体可以是生物，所以应该被抽象为更高的抽象类）
+  >  */
+  > public abstract class Biological {
+  >     public void alive() {
+  > 
+  >     }
+  > 
+  >     public void death() {
+  > 
+  >     }
+  > }
+  > ```
+  >
+  > ```java
+  > /**
+  >  * 人类，继承生物，可以没有自己的方法，全部是从抽象类继承的非抽象方法（注意：抽象类中有抽象方法子类必须实现）
+  >  */
+  > public class Person extends Biological {
+  > 
+  > }
+  > ```
+  >
+  > 最重要的主程序来了，仔细看注释介绍
+  >
+  > ```java
+  > /**
+  >  * 主程序，以下只是演示，注释最重要
+  >  */
+  > public class Main {
+  >     public static void main(String[] args) {
+  >         Biological biological = new Person();//初始化时将人类的对象赋值给生物的引用时可以的
+  >         Person person = new Person();//生成一个人类的对象
+  >         biological = person;//将人类的对象复制给生物的引用也是没问题
+  >     }
+  > }
+  > ```
+
 - **抽象方法**必须**由子类来进行重写**。
+
+  > **抽象类**
+  >
+  > ```java
+  > /**
+  >  * 生物类
+  >  */
+  > public abstract class Biological {
+  > 
+  >     public abstract void getEnergy();//增加了获取能量这个抽象方法
+  > 
+  >     public void alive() {
+  > 
+  >     }
+  > 
+  >     public void death() {
+  > 
+  >     }
+  > }
+  > ```
+  >
+  > 人类
+  >
+  > ```java
+  > /**
+  >  * 人类，继承生物，继承了两个非抽象方法，并实现了抽象方法
+  >  */
+  > public class Person extends Biological {
+  > 
+  >     @Override
+  >     public void getEnergy() {//实现的抽象
+  > 
+  >     }
+  > }
+  > ```
+
 - 只要**包含一个抽象方法的抽象类**，该方法**必须要定义成抽象类**，不管是否还包含有其他方法。
 
 - 抽象类中**可以包含具体的方法**，当然**也可以不包含抽象方法**。
 
+  ```java
+  /**
+   * 有抽象方法的抽象类
+   */
+  public abstract class A {
+      public abstract void a();
+  }
+  ```
+
+  ```java
+  /**
+   * 没有抽象方法的抽象类
+   */
+  public abstract class B {
+      public void a() {
+  
+      }
+  }
+  ```
+
 - 子类中的抽象方法**不能**与父类的抽象方法**同名**。
 
 - `abstract`不能与`final`并列修饰同一个类。
-- `abstract` 不能与`private`、`static`、`final`或`native`并列修饰同一个方法。
+
+  > 这个显而易见，既然是抽象的，就必须需要时需要被子类实现的，所以不可能时final
+
+- `abstract` 不能与`private`、`static`、`final`或并列修饰同一个方法。
+
+  > `private`:抽象方法，必须是需要被继承的实现的，所以不可以用私有修饰符修饰
+  >
+  > `static`：同样，抽象方法是需要被实现的，但是静态方法是不可以被重写
+  >
+  > final：同上
 
 ## 抽象类和接口的区别
 
@@ -199,13 +463,29 @@ public abstract class Test {
 下面看一个网上流传最广泛的例子：门和警报的例子：门都有open( )和close( )两个动作，此时我们可以定义通过抽象类和接口来定义这个抽象概念：
 
 ```java
-`abstract` `class` `Door {``  ``public` `abstract` `void` `open();``  ``public` `abstract` `void` `close();``}`
+/**
+ * 门的抽象类
+ */
+public abstract class DoorAbstract {
+
+    public abstract void open();
+
+    public abstract void close();
+}
 ```
 
 　　或者：
 
 ```java
-`interface` `Door {``  ``public` `abstract` `void` `open();``  ``public` `abstract` `void` `close();``}`
+/**
+ * 门的接口
+ */
+public interface DoorInterface {
+
+    public void open();
+
+    public void close();
+}
 ```
 
 但是现在如果我们需要门具有**报警alarm( )**的功能，那么该如何实现？下面提供两种思路：
@@ -249,7 +529,9 @@ public class AlarmDoor extends DoorAbstract implements Alarm {
 }
 ```
 
-**这里其中有个注解`@Override`我简单说明一下（至于注解是啥，不详细的讲解了下节课会讲到）：**
+#### 这里其中有个注解
+
+@Override我简单说明一下（至于注解是啥，不详细的讲解了下节课会讲到）：
 
 `@Override`是伪代码,表示重写可以不写，不过写上有如下好处: 
 
@@ -257,4 +539,53 @@ public class AlarmDoor extends DoorAbstract implements Alarm {
 - 编译器可以给你验证@Override下面的方法名是否是你父类中所有的,如果没有则报错。比如你如果没写@Override而你下面的方法名又写错了，这时你的编译器是可以通过的(它以为这个方法是你的子类中自己增加的方法)。
 
 对于这里而言第二个作用是没有作用的，因为如果继承了抽象类，如果抽象类中含有抽象方法，必须实现这个方法不然编译器也会报错，接口也是同样的，前面说到接口中的方法默认是`public abstract`。
+
+## 内部类
+
+ 顾名思义：可以将一个类的定义放在另一个类的定义内部，这就是内部类。 
+
+### 怎么用？
+
+```java
+/**
+ * 类中定义类
+ */
+public  class A {
+    
+    
+    class B {
+        
+    }
+}
+```
+
+
+
+好了，你现在已经会了内部类了，你看多简单呐     ![img](java面向对象-接口和其他的类/v2-8da4b48b8262d2786486cb942571be4c_hd.jpg)
+
+好了开玩笑的啦。
+
+
+
+### 内部类小飞机
+
+####  为什么要使用内部类？
+
+​		在《Think in java》也就是《java编程思想》中有这样一句话：使用内部类最吸引人的原因是：每个内部类都能独立地继承一个（接口的）实现，所以无论外围类是否已经继承了某个（接口的）实现，对于内部类都没有影响。 
+
+​		在我们程序设计中有时候会存在一些使用接口很难解决的问题，这个时候我们可以利用内部类提供的、可以继承多个具体的或者抽象的类的能力来解决这些程序设计问题。可以这样说，接口只是解决了部分问题，而内部类使得多重继承的解决方案变得更加完整。
+
+![img](java面向对象-接口和其他的类/v2-acb2c980db4a235ed0538f34d9c2918d_hd-1571748707404.jpg)完了上面这么简单的描述还听不懂 ，听不懂没关系，这样说我也不懂，来慢慢分析。
+
+```java
+public interface Father {
+
+}
+```
+
+```java
+public interface Mother {
+
+}
+```
 
