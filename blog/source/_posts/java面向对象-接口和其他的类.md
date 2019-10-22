@@ -589,3 +589,86 @@ public interface Mother {
 }
 ```
 
+接下里骚操作来了：
+
+你可以这样子
+
+```java
+public class Son implements Father, Mother {
+
+}
+```
+
+也可以这样子
+
+```java
+public class Daughter implements Father{
+
+    class Mother_ implements Mother{
+        
+    }
+}
+```
+
+但是不是一个类可以实现多个接口嘛，第二种实现还有什么意义呢。
+
+那么问题来了，如果爸爸妈妈他们不是接口而是一个抽象类或者类呢？现在应该理解更为深刻了。
+
+
+
+#### 内部类基础
+
+`.this`和`.new`语法
+
+ 当我们在创建一个内部类的时候，它无形中就与外围类有了一种联系，依赖于这种联系，它可以无限制地访问外围类的元素。 
+
+**内部类如何访问外围类的东西呢？**
+
+> 当然直接用变量名就可以访问啦
+
+**内部类如何获取外围类的对象呢？（.this）**
+
+> 这样子：
+>
+> ```java
+> /**
+>  * 内部类示例
+>  */
+> public  class A {
+>     String s = "";
+> 
+>     class B {
+>         public void lala() {
+>             A a = A.this;  //关键的地方
+>         }
+>     }
+> }
+> ```
+
+**如何创建内部类的对象呢？**
+
+> **在外围类内**
+>
+> ```java
+> /**
+>  * 内部类示例
+>  */
+> public  class A {
+>     String s = "";
+> 
+>     public void lala() {
+>         B b = new B();  //关键的地方
+>     }
+> 
+>     class B {
+> 
+>     }
+> }
+> ```
+>
+> **在外围类外：**（.new）
+>
+> ```java
+> A a = new A();
+> A.B b = a.new B();
+> ```
