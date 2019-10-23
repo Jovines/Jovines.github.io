@@ -859,7 +859,7 @@ class B{
 
 - 注意getInnerClass()方法的形参，第一个形参是用final修饰的，而第二个却没有。同时我们也发现第二个形参在匿名内部类中没有使用过，所以当所在方法的形参需要被匿名内部类使用，那么这个形参就必须为final。
 
-  > 为什么一定要是final![img](java面向对象-接口和其他的类/v2-114ee3caaad0d612d39818c9f3f81201_hd.jpg)？？？【这个现阶段不用了解，自己有空可以去看看】
+  > 为什么一定要是final![img](java面向对象-接口和其他的类/v2-114ee3caaad0d612d39818c9f3f81201_hd.jpg)？？？【这个知道就好，下一阶段自己进阶吧，自己有空可以去看看】
   >
   > 那么又来了一个名词，“**闭包**”
   >
@@ -868,6 +868,57 @@ class B{
   > 1. 一个依赖于外部环境自由变量的函数
   > 2. 这个函数能够访问外部环境里的自由变量
   >
-  > 简而言之就是，
+  > 好了我们不细说了，细说的话就是火箭了，这里附两个[链接](https://blog.csdn.net/jiao_zg/article/details/78911469)   [链接]( https://www.zhihu.com/question/21395848 )其实分为java8之前之后
 
 - 匿名内部类是没有构造方法的。因为它连名字都没有何来构造方法。
+
+### 静态内部类
+
+*  非静态内部类在编译完成之后会隐含地保存着一个引用 
+
+*  它的创建是不需要依赖于外围类的
+*  它不能使用任何外围类的非static成员变量和方法。 
+
+
+
+# git
+
+链接在手，天下你有，自己去详细学习吧：[github注册链接](https://github.com/join?source=header-home)
+
+## 概念
+
+### 工作区（Working Directory）
+
+是我们直接编辑的地方，例如 idea 打开的项目，记事本打开的文本等，肉眼可见，直接操作。
+
+### 暂存区（Stage 或 Index）
+
+数据暂时存放的区域，可在工作区和版本库之间进行数据的友好交流。
+
+### 版本库（commit History）
+
+存放已经提交的数据，push 的时候，就是把这个区的数据 push 到远程仓库了。
+
+![git 数据流程图示意图](java面向对象-接口和其他的类/2429e4d2661e60027537aea0077f6e40.png)
+
+## 常用命令讲解
+
+* git init
+* git add .
+* git commit
+* git push
+* git pull
+* git checkout 
+* git reset
+* git log
+* git remote
+
+
+
+细讲我怕又是几小时，下面我给你们简单介绍几个常用命令，也就是我门作业会用到的。也是今后我们用到最多的。
+
+ 
+
+# github注册
+
+链接在手，天下你有，自己去注册吧：[github注册链接](https://github.com/join?source=header-home)
