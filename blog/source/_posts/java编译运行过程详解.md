@@ -19,12 +19,6 @@ Java程序从源文件创建到程序运行要经过两大步骤：
 
 （ "semi-interpreted" language）
 
-![img](java编译运行过程详解/20170509103254317)
-
-
-
-
-
 ```java
 class Animal {
     private String name;
