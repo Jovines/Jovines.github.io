@@ -22,7 +22,11 @@ date: 2019-10-12 14:34:00
 
 
 
-# 先来吹吹概念 <img src="java面向对象-接口和其他的类/6af89bc8gw1f8tzvsvn8gj20a00a00tp.jpg" alt="这和吃饭时扶碗是一个概念" style="zoom:25%;" />
+# 先来吹吹概念 
+
+小恐龙镇压，让学习不再困难：
+
+<img src="java面向对象-接口和其他的类/v2-db4581e2b067caef5a9586f7eebdf201_hd-1571838820692.jpg" alt="img" style="zoom: 50%;" />![img](java面向对象-接口和其他的类/v2-56d8e6cc72c947ee95df5a1a7bff9fc2_hd.jpg)<img src="java面向对象-接口和其他的类/v2-308d4b287931127b020ac4cc861a1757_hd-1571838917313.jpg" alt="img" /><img src="java面向对象-接口和其他的类/v2-308d4b287931127b020ac4cc861a1757_hd-1571838917313.jpg" alt="img" style="zoom:50%;" /><img src="java面向对象-接口和其他的类/v2-db4581e2b067caef5a9586f7eebdf201_hd-1571838820692.jpg" alt="img" style="zoom: 50%;" />![img](java面向对象-接口和其他的类/v2-308d4b287931127b020ac4cc861a1757_hd-1571838917313.jpg)<img src="java面向对象-接口和其他的类/v2-db4581e2b067caef5a9586f7eebdf201_hd-1571838820692.jpg" alt="img" style="zoom: 50%;" />![img](java面向对象-接口和其他的类/v2-56d8e6cc72c947ee95df5a1a7bff9fc2_hd.jpg)
 
 ## 接口
 
@@ -133,11 +137,9 @@ date: 2019-10-12 14:34:00
 
 ## 抽象类
 
-**我都叫抽象类了，你说我抽象不抽象，我觉得我比上面那玩意儿抽象，你说呢？**
+**<img src="java面向对象-接口和其他的类/164336559DA3C001F7D365CBC0A67998.jpg" alt="164336559DA3C001F7D365CBC0A67998" style="zoom:18%;" />我都叫抽象类了，你说我抽象不抽象，我觉得我比上面那玩意儿抽象，你说呢？**
 
-
-
-### <img src="java面向对象-接口和其他的类/164336559DA3C001F7D365CBC0A67998.jpg" alt="164336559DA3C001F7D365CBC0A67998" style="zoom:25%;" />  黄坤坤告诉你到底有多抽象？
+###  黄坤坤告诉你到底有多抽象？
 
 **抽象？我叫抽象类我就抽象啦？那hljj是jj吗？**
 
@@ -304,6 +306,8 @@ public class Main {
 
 函数式接口
 
+
+
 ## 接口继承接口以及java8之后的接口多继承问题
 
 [详细解释链接](https://colobu.com/2014/11/04/Java-8-default-method-and-multiple-inheritance/)可能失效，我这里简述一下。
@@ -356,8 +360,6 @@ public class Test implements B, A {
 }
 ```
 
-那么问题来了
-
 # 抽象类
 
 ## 定义
@@ -391,6 +393,12 @@ public abstract class Test {
 声明一个java抽象类只需要在正常的类的class之前加上`abstract`
 
 #### 抽象方法声明
+
+```java
+abstract class A {
+    public abstract   void a();
+}
+```
 
 ## 使用时需要注意的：
 
@@ -579,7 +587,7 @@ public interface Alarm {
 }
 ```
 
-然后在对这个可以报警的们进行封装：
+然后在对这个可以报警的门进行封装：
 
 ```java
 /**
@@ -617,7 +625,7 @@ public class AlarmDoor extends DoorAbstract implements Alarm {
 
 # 内部类
 
- 顾名思义：可以将一个类的定义放在另一个类的定义内部，这就是内部类。 
+ 顾名思义：可以将一个类的定义放在另一个类的定义内部，这就是内部类。 <img src="java面向对象-接口和其他的类/v2-2b4d1f67bd8f8aaecb32920c58cd687c_hd.jpg" alt="img" style="zoom:50%;" />
 
 ## 怎么用？
 
@@ -636,9 +644,9 @@ public  class A {
 
 
 
-好了，你现在已经会了内部类了，你看多简单呐     ![img](java面向对象-接口和其他的类/v2-8da4b48b8262d2786486cb942571be4c_hd.jpg)
+好了，你现在已经会了内部类了，你看多简单呐     <img src="java面向对象-接口和其他的类/v2-8da4b48b8262d2786486cb942571be4c_hd.jpg" alt="img" style="zoom:50%;" />
 
-好了开玩笑的啦。
+好了开玩笑的啦。<img src="java面向对象-接口和其他的类/v2-db4581e2b067caef5a9586f7eebdf201_hd.jpg" alt="img" style="zoom:50%;" />
 
 
 
@@ -650,7 +658,7 @@ public  class A {
 
 ​		在我们程序设计中有时候会存在一些使用接口很难解决的问题，这个时候我们可以利用内部类提供的、可以继承多个具体的或者抽象的类的能力来解决这些程序设计问题。可以这样说，接口只是解决了部分问题，而内部类使得多重继承的解决方案变得更加完整。
 
-![img](java面向对象-接口和其他的类/v2-acb2c980db4a235ed0538f34d9c2918d_hd-1571748707404.jpg)完了上面这么简单的描述还听不懂 ，听不懂没关系，这样说我也不懂，来慢慢分析。
+<img src="java面向对象-接口和其他的类/v2-acb2c980db4a235ed0538f34d9c2918d_hd-1571748707404.jpg" alt="img" style="zoom: 50%;" />  完了上面这么简单的描述还听不懂 ，听不懂没关系，这样说我也不懂，来慢慢分析。
 
 ```java
 public interface Father {
@@ -883,7 +891,7 @@ class B{
 
 # git
 
-链接在手，天下你有，自己去详细学习吧：[github注册链接](https://github.com/join?source=header-home)
+链接在手，天下你有，自己去详细学习吧：[github注册链接](https://www.liaoxuefeng.com/wiki/896043488029600)
 
 ## 概念
 
@@ -903,9 +911,9 @@ class B{
 
 ## 常用命令讲解
 
-#### Git 常用命令汇总
+### Git 常用命令汇总
 
-**1、远程仓库相关命令**
+#### 1、远程仓库相关命令
 
 - 检出仓库：$ git clone [remoteName]
 - 查看远程仓库：$ git remote -v
@@ -920,7 +928,7 @@ class B{
 - $ git push origin test:master         // 提交本地test分支作为远程的master分支
 - $git push origin test:test              // 提交本地test分支作为远程的test分支
 
-**2、分支(branch)操作相关命令**
+#### 2、分支(branch)操作相关命令
 
 - 查看本地分支：$ git branch
 
@@ -968,7 +976,7 @@ class B{
 
 - $git clean -fdx
 
-**3、版本(tag)操作相关命令**
+#### 3、版本(tag)操作相关命令
 
 - 查看版本：$ git tag
 - 创建版本：$ git tag [name]
@@ -980,7 +988,7 @@ class B{
 - 上传本地tag到远程仓库：$ git push origin --tags
 - 创建带注释的tag：$ git tag -a [name] -m 'yourMessage'
 
-**4、忽略一些文件、文件夹不提交**
+#### 4、忽略一些文件、文件夹不提交
 
 [.gitignore文件详解](https://jontree.github.io/2019/10/04/gitignore%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93)
 
@@ -1005,7 +1013,7 @@ class B{
 - git remote show 查看远程库
 - git add .
 - git rm 文件名(包括路径) 从git中删除指定文件
-- git clone [git://github.com/schacon/grit.git](https://link.jianshu.com?t=git://github.com/schacon/grit.git) 从服务器上将代码给拉下来
+- git clone git://github.com/schacon/grit.git从服务器上将代码给拉下来
 - git config --list 看所有用户
 - git ls-files 看已经被提交的
 - git rm [file name] 删除一个文件
@@ -1027,7 +1035,7 @@ class B{
 
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 
-- git remote add origin [git@github.com](https://link.jianshu.com?t=mailto:git@github.com):username/Hello-World.git
+- git remote add origin it@github.com:username/Hello-World.git
 - git push origin master 将本地项目给提交到服务器中
 
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -1071,11 +1079,11 @@ class B{
 
 - git commit -m 'first commit'
 
-- git remote add origin [git@github.com](https://link.jianshu.com?t=mailto:git@github.com):daixu/WebApp.git增加一个远程服务器端
+- git remote add origin git@github.com:daixu/WebApp.git增加一个远程服务器端
 
 
 
-细讲我怕又是几小时，下面我给你们简单介绍几个常用命令，也就是我门作业会用到的。也是今后我们用到最多的。
+细讲我怕又是几小时 <img src="java面向对象-接口和其他的类/v2-daba4efa3f71587ad62c168eeb711a01_hd-1571838207875.jpg" alt="img" style="zoom:50%;" />，下面我给你们简单介绍几个常用命令，也就是我门作业会用到的。也是今后我们用到最多的。
 
  
 
@@ -1093,17 +1101,13 @@ class B{
 
 你觉得上面的git命令复杂可以先不看，github里面新建工程啥的太麻烦可以先不看。
 
-## 偷懒第一步
-
 打开你神奇的idea，并打开你的项目
-
-
 
 假如现在你要上传你的项目到你的github，你只需要 点  点  点
 
 ![TIM截图20191023163526](java面向对象-接口和其他的类/TIM截图20191023163526.png)
 
-这一步如果你还没登陆的话会要求你登陆，我这已经登陆了所以直接弹出了这个框，点击share就会帮你在本地执行`git init` `git add .` `git add remote` 你的github里面创建仓库并把你的整个工程传上去，一把梭爽不爽 <img src="java面向对象-接口和其他的类/v2-4d2cb53368cc8b322c3075d23d1e0c34_hd.jpg" alt="img" style="zoom: 50%;" />
+这一步如果你还没登陆的话会要求你登陆，我这已经登陆了所以直接弹出了这个框，点击share就会帮你在本地执行`git init` `git add .` `git add remote` 你的github里面创建仓库并把你的整个工程传上去，一把梭爽不爽 <img src="java面向对象-接口和其他的类/v2-4d2cb53368cc8b322c3075d23d1e0c34_hd.jpg" alt="img" style="zoom: 50%;" />爽
 
 ![TIM截图20191023163817](java面向对象-接口和其他的类/TIM截图20191023163817.png)
 
@@ -1111,7 +1115,7 @@ class B{
 
 
 
-好了正式开始你的程序员生活了<img src="java面向对象-接口和其他的类/1571820564925.jpeg" alt="1571820564925" style="zoom: 25%;" />，如何拉网络去你仓库的更新呢？只需  **点**  
+好了正式开始你的程序员生活了<img src="java面向对象-接口和其他的类/1571820564925.jpeg" alt="1571820564925" style="zoom: 18%;" />，如何拉网络去你仓库的更新呢？只需  **点**   **点 **   **点**
 
 ![TIM截图20191023165925](java面向对象-接口和其他的类/TIM截图20191023165925.png)
 
@@ -1119,7 +1123,7 @@ class B{
 
 
 
-那如何提交呢？<img src="java面向对象-接口和其他的类/1571820567750.jpeg" alt="1571820567750" style="zoom:25%;" /> 只需要  点  点  点 
+那如何提交呢？<img src="java面向对象-接口和其他的类/1571820567750.jpeg" alt="1571820567750" style="zoom:25%;" /> 只需要  **点  点  点** 
 
 ![TIM截图20191023170652](java面向对象-接口和其他的类/TIM截图20191023170652.png)
 
@@ -1139,7 +1143,7 @@ class B{
 
 
 
-好了我来学习更多的git操作，也是超简单，**我   才    不    要     记     命    令**
+好了我来学习更多的git操作，对你自己说，**”我  。 才  。  不  。  要  。   记  。   命  。  令。<img src="java面向对象-接口和其他的类/v2-fdddf30851f4370410c068f923e0c405_hd.jpg" alt="img" style="zoom:50%;" />“**
 
 假如你现在突发奇想有另外一个想法，想创建一个测试分支，来写那个功能，咋啦呢？ 只需  **点    点    点**
 
@@ -1168,11 +1172,11 @@ class B{
 
 
 
-如果你完全不要本地的所有更改了，可以直接hard到最近一个commit
+如果你完全不要本地的所有更改了，可以直接hard到最近一个commit（危险操作，虽然我经常做<img src="java面向对象-接口和其他的类/v2-a11eadf17f85c2caef8ac2e391d0cf69_hd.jpg" alt="img" style="zoom:50%;" />）
 
 
 
-好了现在假如你完成了你突发奇想的功能感觉还不错，想把test分支合并到主分支要咋办呢？ 还是**点  点  点**
+好了现在假如你完成了你突发奇想的功能感觉还不错，想把test分支合并到主分支要咋办呢？ 还是**点    点    点**
 
 先切换回主分支
 
@@ -1186,4 +1190,4 @@ class B{
 
 这样就合并啦
 
-这也太简单了吧
+这也太简单了吧<img src="java面向对象-接口和其他的类/v2-2f4c1f2a5eb83e1368364c9a87aa258c_hd.jpg" alt="img" style="zoom:50%;" />
