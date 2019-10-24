@@ -474,7 +474,7 @@ abstract class A {
   > public class Person extends Biological {
   > 
   >     @Override
-  >     public void getEnergy() {//实现的抽象
+  >     public void getEnergy() {//实现的抽象抽象方法
   > 
   >     }
   > }
@@ -658,7 +658,7 @@ public  class A {
 
 ​		在我们程序设计中有时候会存在一些使用接口很难解决的问题，这个时候我们可以利用内部类提供的、可以继承多个具体的或者抽象的类的能力来解决这些程序设计问题。可以这样说，接口只是解决了部分问题，而内部类使得多重继承的解决方案变得更加完整。
 
-<img src="java面向对象-接口和其他的类/v2-acb2c980db4a235ed0538f34d9c2918d_hd-1571748707404.jpg" alt="img" style="zoom: 50%;" />  完了上面这么简单的描述还听不懂 ，听不懂没关系，这样说我也不懂，来慢慢分析。
+<img src="java面向对象-接口和其他的类/v2-acb2c980db4a235ed0538f34d9c2918d_hd-1571748707404.jpg" alt="img" style="zoom: 33%;" />  完了上面这么简单的描述还听不懂 ，听不懂没关系，这样说我也不懂，来慢慢分析。
 
 ```java
 public interface Father {
@@ -762,7 +762,7 @@ public class Daughter implements Father{
 
  到这里了我们需要明确一点，**内部类是个编译时的概念**，一旦编译成功后，它就与外围类**属于两个完全不同的类**（当然他们之间还是有联系的）。对于一个名为A的外围类和一个名为B的内部类，在编译成功后，会出现这样两个class文件：**OuterClass.class和OuterClass$InnerClass.class。** 
 
-关于java编译运行有兴趣了解[自己了解](http://jontree.github.io/2019/10/23/java%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3)
+关于java编译运行有兴趣了解[自己了解](http://jontree.github.io/2019/10/23/java%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3)（之前不是很多同学用命令行javac  和 java命令嘛）
 
 ## 内部类的分类
 
@@ -818,55 +818,56 @@ public  class A {
 
 * 它只能在该方法和属性中被使用，出了该方法和属性就会失效 
 
-首先为了方便，我门先定义一个接口：
+  首先为了方便，我门先定义一个接口：
 
-```java
-/**
- * 口接口A
- */
-interface A{
-    
-}
-```
+  ```java
+  /**
+   * 口接口A
+   */
+  interface A{
+      
+  }
+  ```
 
-下面开始正式的例子：
+  下面开始正式的例子：
 
-可以返回局部内部类实例化对象的函数（下面有个类B，里面有个方法返回A的引用，并且函数体里面有个实现了接口A的局部内部类C）
+  可以返回局部内部类实例化对象的函数（下面有个类B，里面有个方法返回A的引用，并且函数体里面有个实现了接口A的局部内部类C）
 
-```java
-/**
- * 含有局部内部类的类B
- */
-class B{
-    public A lala() {
-        class C implements A{
+  ```java
+  /**
+   * 含有局部内部类的类B
+   */
+  class B{
+      public A lala() {
+          class C implements A{
+  
+          }
+          return new C();
+      }
+  }
+  ```
 
-        }
-        return new C();
-    }
-}
-```
+  你可以直接这样子定义然后在方法中使用（作用域在方法内）
 
-你可以直接这样子定义然后在方法中使用（作用域在方法内）
+  ```java
+  /**
+   * 含有局部内部类的类B
+   */
+  class B{
+      public void lala() {
+          class C {
+              
+          }
+          C c = new C();
+          
+      }
+  }
+  ```
 
-```java
-/**
- * 含有局部内部类的类B
- */
-class B{
-    public void lala() {
-        class C {
-            
-        }
-        C c = new C();
-        
-    }
-}
-```
 
 ### 匿名内部类
 
-#### 咋写
+#### 咋写？
 
 首先定义一个接口，一个抽象类，和一个简单的类
 
@@ -955,9 +956,9 @@ public class D {
   > ```java
   > /**
   >  * 我是一个冷漠无情的简单接口A
-  >  */
+  > */
   > public interface A {
-  >     public void a();
+  >  public void a();
   > }
   > ```
   >
@@ -966,19 +967,19 @@ public class D {
   > ```java
   > /**
   >  * 我是一个冷漠无情的简单类B
-  >  */
+  > */
   > public  class B {
-  >     int a = 0;
-  >     public void b() {
-  >         int b = 0;
-  >         new A() {
-  >             @Override
-  >             public void a() {
+  >  int a = 0;
+  >  public void b() {
+  >      int b = 0;
+  >      new A() {
+  >          @Override
+  >          public void a() {
   > 
-  >             }
-  >         };
-  >         
-  >     }
+  >          }
+  >      };
+  >      
+  >  }
   > }
   > ```
   >
@@ -987,19 +988,19 @@ public class D {
   > ```java
   > /**
   >  * 冷漠无情的简单类B我又来了
-  >  */
+  > */
   > public  class B {
-  >     int a = 0;
-  >     public void b() {
-  >         int b = 0;
-  >         new A() {
-  >             @Override
-  >             public void a() {
-  >                 System.out.println(b);//编译是能通过的，不会报错的
-  >             }
-  >         };
+  >  int a = 0;
+  >  public void b() {
+  >      int b = 0;
+  >      new A() {
+  >          @Override
+  >          public void a() {
+  >              System.out.println(b);//编译是能通过的，不会报错的
+  >          }
+  >      };
   > 
-  >     }
+  >  }
   > }
   > ```
   >
@@ -1014,19 +1015,19 @@ public class D {
   > ```java
   > /**
   >  * 我是一个冷漠无情的简单类B
-  >  */
+  > */
   > public  class B {
-  >     int a = 0;
-  >     public void b() {
-  >         int b = 0;
-  >         new A() {
-  >             @Override
-  >             public void a() {
-  >                 b = 99;					//关键部位（也是报错部位）
-  >             }
-  >         };
+  >  int a = 0;
+  >  public void b() {
+  >      int b = 0;
+  >      new A() {
+  >          @Override
+  >          public void a() {
+  >              b = 99;					//关键部位（也是报错部位）
+  >          }
+  >      };
   > 
-  >     }
+  >  }
   > }
   > ```
   >
@@ -1044,22 +1045,22 @@ public class D {
   > ```java
   > /**
   >  * 我是一个冷漠无情的简单类B,我又出现了
-  >  */
+  > */
   > public  class B {
-  >     int a = 0;
-  >     public void b() {
-  >         int b = 0;
-  >         new A() {
-  >             {
-  >                 b = 99;			//关键部分
-  >             }
-  >             @Override
-  >             public void a() {
-  >                 
-  >             }
-  >         };
+  >  int a = 0;
+  >  public void b() {
+  >      int b = 0;
+  >      new A() {
+  >          {
+  >              b = 99;			//关键部分
+  >          }
+  >          @Override
+  >          public void a() {
+  >              
+  >          }
+  >      };
   > 
-  >     }
+  >  }
   > }
   > ```
   >
@@ -1076,19 +1077,19 @@ public class D {
   > ```java
   > /**
   >  * 我是一个冷漠无情的简单类B,我又出现了
-  >  */
+  > */
   > public  class B {
-  >     int a = 0;
-  >     public void b() {
-  >         int b = 0;
-  >         new A() {
-  >             @Override
-  >             public void a() {
-  >                 a = 99;				//关键部分（没报错）
-  >             }
-  >         };
+  >  int a = 0;
+  >  public void b() {
+  >      int b = 0;
+  >      new A() {
+  >          @Override
+  >          public void a() {
+  >              a = 99;				//关键部分（没报错）
+  >          }
+  >      };
   > 
-  >     }
+  >  }
   > }
   > ```
   >
@@ -1099,24 +1100,24 @@ public class D {
   > ```java
   > /**
   >  * 我是一个的简单类B,这次我可不简单了
-  >  */
+  > */
   > public  class B {
-  >     int a = 0;
-  >     public void b() {
-  >         int b = 0;
-  >         new A() {			//匿名内部类
-  >             @Override
-  >             public void a() {
-  >                 a = 99;
-  >             }
-  >         };
-  >     }
+  >  int a = 0;
+  >  public void b() {
+  >      int b = 0;
+  >      new A() {			//匿名内部类
+  >          @Override
+  >          public void a() {
+  >              a = 99;
+  >          }
+  >      };
+  >  }
   > 
-  >     class C {				//简单内部类C
-  >         public void c() {
+  >  class C {				//简单内部类C
+  >      public void c() {
   > 
-  >         }
-  >     }
+  >      }
+  >  }
   > }
   > ```
   >
@@ -1134,48 +1135,88 @@ public class D {
   >
   > ```java
   > public class B {
-  >     int a = 0;
+  >  int a = 0;
   > 
-  >     public B() {
-  >     }
+  >  public B() {
+  >  }
   > 
-  >     public void b() {
-  >         int b = false;
-  >         A var10001 = new A() {
-  >             public void a() {
-  >                 B.this.a = 99;
-  >             }
-  >         };
-  >     }
+  >  public void b() {
+  >      int b = false;
+  >      A var10001 = new A() {
+  >          public void a() {
+  >              B.this.a = 99;
+  >          }
+  >      };
+  >  }
   > 
-  >     class C {
-  >         C() {
-  >         }
+  >  class C {
+  >      C() {
+  >      }
   > 
-  >         public void c() {
-  >         }
-  >     }
+  >      public void c() {
+  >      }
+  >  }
   > }
   > ```
   >
-  > 没有太大的区别，唯一的区别就是变量b
+  > 没有太大的区别，唯一的区别就是变量b，原本时0的值变成了布尔类型，这是为啥呢？
   >
-  > 再来看看B$C.class
+  > 
+  >
+  > 还问为啥？是要我开火箭嘛，这篇课件不是因为“为啥”会有12000+的字嘛？？最简单的来说这是编译器个一个优化，你这个值没有使用，为啥要给你存不需要存一个整形，整形相对于布尔类型还是蛮大的，自己康康，整整四倍呢。。。。。。
+  >
+  > | 类型    | 存储需求 | bit 数 | 取值范围               | 备注                                                         |
+  > | ------- | -------- | ------ | ---------------------- | ------------------------------------------------------------ |
+  > | int     | 4字节    | 4*8    | -2147483648~2147483647 | 即 (-2)的31次方 ~ (2的31次方) - 1                            |
+  > | short   | 2字节    | 2*8    | -32768~32767           | 即 (-2)的15次方 ~ (2的15次方) - 1                            |
+  > | long    | 8字节    | 8*8    |                        | 即 (-2)的63次方 ~ (2的63次方) - 1                            |
+  > | byte    | 1字节    | 1*8    | -128~127               | 即 (-2)的7次方 ~ (2的7次方) - 1                              |
+  > | float   | 4字节    | 4*8    |                        | float 类型的数值有一个后缀 F（例如：3.14F）                  |
+  > | double  | 8字节    | 8*8    |                        | 没有后缀 F 的浮点数值（例如：3.14）默认为 double             |
+  > | boolean | 1字节    | 1*8    | true、false            |                                                              |
+  > | char    | 2字节    | 2*8    |                        | Java中，只要是字符，不管是数字还是英文还是汉字，都占两个字节。 |
+  >
+  > **再来看看B$C.class**
   >
   > ```java
   > class B$C {
-  >     B$C(B this$0) {
+  >  B$C(B this$0) {
+  >      this.this$0 = this$0;
+  >  }
+  > 
+  >  public void c() {
+  >  }
+  > }
+  > ```
+  >
+  > 嗯，作为内部类，持有外围类的应用，**正解**。这里只能看到外围类的引用传进来了，那系统是怎么使用的呢？<img src="java面向对象-接口和其他的类/006APoFYjw1fbw78x1kr4g308c08caa2-1571887367591.gif" alt="兔子摔地上 - 吐血表情包_动图_吐血表情" style="zoom:15%;" />  保存和使用是jvm级别的事，这里就详细讲了，我还没怎么看呢。
+  >
+  > 
+  >
+  > 好的关键部分了，我们再来看看B$1.class反编译的结果
+  >
+  > ```java
+  > class B$1 implements A {
+  >     B$1(B this$0) {
   >         this.this$0 = this$0;
   >     }
   > 
-  >     public void c() {
+  >     public void a() {
+  >         this.this$0.a = 99;
   >     }
   > }
   > ```
   >
-  > 嗯，作为内部类
+  > <img src="java面向对象-接口和其他的类/9150e4e5gy1g6o895cawsj20sg0sg76j.jpg" alt="原来是这么回事！这下谜解开了（哆啦A梦表情包）_这么回事_这下_解开_原来表情" style="zoom:18%;" />  看到没有，匿名内部类也是会保存外围类的引用的
   >
-  > 为什么一定要是final<img src="java面向对象-接口和其他的类/v2-114ee3caaad0d612d39818c9f3f81201_hd.jpg" alt="img" style="zoom:50%;" />？？？【这个知道就好，下一阶段自己进阶吧，自己有空可以去看看】
+  >
+  > 好了这下说明我上面那句话是对的，nice，那么问题又来了。
+  >
+  > 
+  >
+  > **为什么一定要是final<img src="java面向对象-接口和其他的类/v2-114ee3caaad0d612d39818c9f3f81201_hd.jpg" alt="img" style="zoom:50%;" />？？？**<img src="java面向对象-接口和其他的类/006APoFYjw1fbw78x1kr4g308c08caa2-1571887367591.gif" alt="兔子摔地上 - 吐血表情包_动图_吐血表情" style="zoom:15%;" />**你们吐血没反正我吐了**
+  >
+  > 好的，我们来讲
   >
   > 那么又来了一个名词，“**闭包**”
   >
@@ -1188,11 +1229,10 @@ public class D {
   >
   > 首先我们定义一个接口，做准备
   >
-  > 
+  > `不准备了，不准备了，自己百度看教程吧，再准备这课件起码到20000字了。`
   >
-  > 好了我们不细说了，细说的话就是火箭了，这里附两个[链接](https://blog.csdn.net/jiao_zg/article/details/78911469)   [链接]( https://www.zhihu.com/question/21395848 )其实分为java8之前之后
+  > 这里附两个[java中的final讲解](https://blog.csdn.net/jiao_zg/article/details/78911469)   [闭包讲解](https://www.zhihu.com/question/24084277/answer/110176733)其实分为java8之前之后
   >
-  > 下面我来解释一下这个小标题的意思，啥叫
 
 - 匿名内部类是没有构造方法的。因为它连名字都没有何来构造方法。
 
@@ -1203,11 +1243,9 @@ public class D {
 *  它的创建是不需要依赖于外围类的
 *  它不能使用任何外围类的非static成员变量和方法。 
 
-[这有个拓展，自己去看看](https://jontree.github.io/2019/10/23/java%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3)
-
 # git
 
-链接在手，天下你有，自己去详细学习吧：[github注册链接](https://www.liaoxuefeng.com/wiki/896043488029600)
+链接在手，天下你有，自己去详细学习吧：[ 史上最浅显易懂的Git教程！ ](https://www.liaoxuefeng.com/wiki/896043488029600)
 
 ## 概念
 
@@ -1308,7 +1346,7 @@ public class D {
 
 [.gitignore文件详解](https://jontree.github.io/2019/10/04/gitignore%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93)
 
-### 附ye： Git 常用命令速查
+### 附页： Git 常用命令速查
 
 - git branch 查看本地所有分支
 - git status 查看当前状态
