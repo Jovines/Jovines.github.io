@@ -958,7 +958,7 @@ public class D {
   >  * 我是一个冷漠无情的简单接口A
   > */
   > public interface A {
-  >  public void a();
+  > public void a();
   > }
   > ```
   >
@@ -969,17 +969,17 @@ public class D {
   >  * 我是一个冷漠无情的简单类B
   > */
   > public  class B {
-  >  int a = 0;
-  >  public void b() {
-  >      int b = 0;
-  >      new A() {
-  >          @Override
-  >          public void a() {
+  > int a = 0;
+  > public void b() {
+  >   int b = 0;
+  >   new A() {
+  >       @Override
+  >       public void a() {
   > 
-  >          }
-  >      };
-  >      
-  >  }
+  >       }
+  >   };
+  >   
+  > }
   > }
   > ```
   >
@@ -990,17 +990,17 @@ public class D {
   >  * 冷漠无情的简单类B我又来了
   > */
   > public  class B {
-  >  int a = 0;
-  >  public void b() {
-  >      int b = 0;
-  >      new A() {
-  >          @Override
-  >          public void a() {
-  >              System.out.println(b);//编译是能通过的，不会报错的
-  >          }
-  >      };
+  > int a = 0;
+  > public void b() {
+  >   int b = 0;
+  >   new A() {
+  >       @Override
+  >       public void a() {
+  >           System.out.println(b);//编译是能通过的，不会报错的
+  >       }
+  >   };
   > 
-  >  }
+  > }
   > }
   > ```
   >
@@ -1017,17 +1017,17 @@ public class D {
   >  * 我是一个冷漠无情的简单类B
   > */
   > public  class B {
-  >  int a = 0;
-  >  public void b() {
-  >      int b = 0;
-  >      new A() {
-  >          @Override
-  >          public void a() {
-  >              b = 99;					//关键部位（也是报错部位）
-  >          }
-  >      };
+  > int a = 0;
+  > public void b() {
+  >   int b = 0;
+  >   new A() {
+  >       @Override
+  >       public void a() {
+  >           b = 99;					//关键部位（也是报错部位）
+  >       }
+  >   };
   > 
-  >  }
+  > }
   > }
   > ```
   >
@@ -1047,20 +1047,20 @@ public class D {
   >  * 我是一个冷漠无情的简单类B,我又出现了
   > */
   > public  class B {
-  >  int a = 0;
-  >  public void b() {
-  >      int b = 0;
-  >      new A() {
-  >          {
-  >              b = 99;			//关键部分
-  >          }
-  >          @Override
-  >          public void a() {
-  >              
-  >          }
-  >      };
+  > int a = 0;
+  > public void b() {
+  >   int b = 0;
+  >   new A() {
+  >       {
+  >           b = 99;			//关键部分
+  >       }
+  >       @Override
+  >       public void a() {
+  >           
+  >       }
+  >   };
   > 
-  >  }
+  > }
   > }
   > ```
   >
@@ -1079,17 +1079,17 @@ public class D {
   >  * 我是一个冷漠无情的简单类B,我又出现了
   > */
   > public  class B {
-  >  int a = 0;
-  >  public void b() {
-  >      int b = 0;
-  >      new A() {
-  >          @Override
-  >          public void a() {
-  >              a = 99;				//关键部分（没报错）
-  >          }
-  >      };
+  > int a = 0;
+  > public void b() {
+  >   int b = 0;
+  >   new A() {
+  >       @Override
+  >       public void a() {
+  >           a = 99;				//关键部分（没报错）
+  >       }
+  >   };
   > 
-  >  }
+  > }
   > }
   > ```
   >
@@ -1102,22 +1102,22 @@ public class D {
   >  * 我是一个的简单类B,这次我可不简单了
   > */
   > public  class B {
-  >  int a = 0;
-  >  public void b() {
-  >      int b = 0;
-  >      new A() {			//匿名内部类
-  >          @Override
-  >          public void a() {
-  >              a = 99;
-  >          }
-  >      };
-  >  }
+  > int a = 0;
+  > public void b() {
+  >   int b = 0;
+  >   new A() {			//匿名内部类
+  >       @Override
+  >       public void a() {
+  >           a = 99;
+  >       }
+  >   };
+  > }
   > 
-  >  class C {				//简单内部类C
-  >      public void c() {
+  > class C {				//简单内部类C
+  >   public void c() {
   > 
-  >      }
-  >  }
+  >   }
+  > }
   > }
   > ```
   >
@@ -1135,35 +1135,35 @@ public class D {
   >
   > ```java
   > public class B {
-  >  int a = 0;
+  > int a = 0;
   > 
-  >  public B() {
-  >  }
+  > public B() {
+  > }
   > 
-  >  public void b() {
-  >      int b = false;
-  >      A var10001 = new A() {
-  >          public void a() {
-  >              B.this.a = 99;
-  >          }
-  >      };
-  >  }
+  > public void b() {
+  >   int b = false;
+  >   A var10001 = new A() {
+  >       public void a() {
+  >           B.this.a = 99;
+  >       }
+  >   };
+  > }
   > 
-  >  class C {
-  >      C() {
-  >      }
+  > class C {
+  >   C() {
+  >   }
   > 
-  >      public void c() {
-  >      }
-  >  }
+  >   public void c() {
+  >   }
+  > }
   > }
   > ```
   >
-  > 没有太大的区别，唯一的区别就是变量b，原本时0的值变成了布尔类型，这是为啥呢？
+  > 没有太大的区别，唯一的区别就是变量b，原本的0的值变成了布尔类型，这是为啥呢？
   >
   > 
   >
-  > 还问为啥？是要我开火箭嘛，这篇课件不是因为“为啥”会有12000+的字嘛？？最简单的来说这是编译器个一个优化，你这个值没有使用，为啥要给你存不需要存一个整形，整形相对于布尔类型还是蛮大的，自己康康，整整四倍呢。。。。。。
+  > 还问为啥？是要我开火箭嘛，这篇课件不是因为“为啥”会有12000+的字嘛？？你仔细想想，写个程序要那么多为什么吗？？您好要的。最简单的来说这是编译器个一个优化，你这个值没有使用，为啥要给你要存一个整形，整形相对于布尔类型还是蛮大的，自己康康，整整四倍呢。。。。。。
   >
   > | 类型    | 存储需求 | bit 数 | 取值范围               | 备注                                                         |
   > | ------- | -------- | ------ | ---------------------- | ------------------------------------------------------------ |
@@ -1176,16 +1176,16 @@ public class D {
   > | boolean | 1字节    | 1*8    | true、false            |                                                              |
   > | char    | 2字节    | 2*8    |                        | Java中，只要是字符，不管是数字还是英文还是汉字，都占两个字节。 |
   >
-  > **再来看看B$C.class**
+  > **再来看看B$C.class，验证是否持有外围类的引用**
   >
   > ```java
   > class B$C {
-  >  B$C(B this$0) {
-  >      this.this$0 = this$0;
-  >  }
+  > B$C(B this$0) {
+  >   this.this$0 = this$0;
+  > }
   > 
-  >  public void c() {
-  >  }
+  > public void c() {
+  > }
   > }
   > ```
   >
@@ -1193,28 +1193,30 @@ public class D {
   >
   > 
   >
-  > 好的关键部分了，我们再来看看B$1.class反编译的结果
+  > **好的关键部分了，我们再来看看B$1.class反编译的结果**
   >
   > ```java
   > class B$1 implements A {
-  >     B$1(B this$0) {
-  >         this.this$0 = this$0;
-  >     }
+  >  B$1(B this$0) {
+  >      this.this$0 = this$0;
+  >  }
   > 
-  >     public void a() {
-  >         this.this$0.a = 99;
-  >     }
+  >  public void a() {
+  >      this.this$0.a = 99;
+  >  }
   > }
   > ```
   >
   > <img src="java面向对象-接口和其他的类/9150e4e5gy1g6o895cawsj20sg0sg76j.jpg" alt="原来是这么回事！这下谜解开了（哆啦A梦表情包）_这么回事_这下_解开_原来表情" style="zoom:18%;" />  看到没有，匿名内部类也是会保存外围类的引用的
+  >
+  > 
   >
   >
   > 好了这下说明我上面那句话是对的，nice，那么问题又来了。
   >
   > 
   >
-  > **为什么一定要是final<img src="java面向对象-接口和其他的类/v2-114ee3caaad0d612d39818c9f3f81201_hd.jpg" alt="img" style="zoom:50%;" />？？？**<img src="java面向对象-接口和其他的类/006APoFYjw1fbw78x1kr4g308c08caa2-1571887367591.gif" alt="兔子摔地上 - 吐血表情包_动图_吐血表情" style="zoom:15%;" />**你们吐血没反正我吐了**
+  > **为什么一定要是final<img src="java面向对象-接口和其他的类/v2-114ee3caaad0d612d39818c9f3f81201_hd.jpg" alt="img" style="zoom:50%;" />？？？**<img src="java面向对象-接口和其他的类/006APoFYjw1fbw78x1kr4g308c08caa2-1571887367591.gif" alt="兔子摔地上 - 吐血表情包_动图_吐血表情" style="zoom:15%;" />**你们吐血没？？反正我吐了**
   >
   > 好的，我们来讲
   >
@@ -1225,16 +1227,28 @@ public class D {
   > 1. 一个依赖于外部环境自由变量的函数
   > 2. 这个函数能够访问外部环境里的自由变量
   >
-  > 哦豁，还是不明白，好的，那么我你可以继续听我慢慢分析
+  > 哦豁，<img src="java面向对象-接口和其他的类/v2-746b68b4c2149a0faef9f4ec9a4e8e92_hd.jpg" alt="img" style="zoom:50%;" /> 还是不明白，好的，那么你继续听我慢慢分析
   >
-  > 首先我们定义一个接口，做准备
+  > 首先我们定义一个接口，做准备准备工作。
+  >
+  > 
   >
   > `不准备了，不准备了，自己百度看教程吧，再准备这课件起码到20000字了。`
+  >
+  > 
   >
   > 这里附两个[java中的final讲解](https://blog.csdn.net/jiao_zg/article/details/78911469)   [闭包讲解](https://www.zhihu.com/question/24084277/answer/110176733)其实分为java8之前之后
   >
 
 - 匿名内部类是没有构造方法的。因为它连名字都没有何来构造方法。
+
+  > 咦，上面不是反编译之后有构造方法吗？
+  >
+  > 不对不对，我这说的是使用内部类的时候，不能有构造方法，你都直接，反编译时出现的构造方法是系统在你生成匿名内部类对象时默认调用的构造方法，因为再怎么它也是个类嘛，还是有类的尊严的。
+  >
+  >
+  > 
+  > 【内部类自白】：怎么人家成为你对象也是条件的嘛<img src="java面向对象-接口和其他的类/6af89bc8gw1f8tzg6lig0g209m073x6p.gif" alt="二次元妹子害羞了（亲亲）_二次元_亲亲_害羞表情" style="zoom: 25%;" />，没有构造方法怎么行
 
 ### 静态内部类
 
