@@ -181,7 +181,7 @@ date: 2019-10-12 14:34:00
 
 ```java
 public interface InterfaceName {
- 
+
 }
 ```
 
@@ -249,6 +249,7 @@ public class Shop {
 ```java
 public class Customer implements Notify {
     long phoneNum = 1234567;
+    
     @Override
     public void call() {
         System.out.println("打电话给" + phoneNum + "通知到货了");
@@ -340,9 +341,10 @@ public interface B {
 
 ```java
 public interface C extends A, B {
+   
     @Override
     default void hhh() {
-
+        
     }
 }
 ```
@@ -394,7 +396,7 @@ public abstract class Test {
 
 ```java
 abstract class A {
-    public abstract   void a();
+    public abstract void a();
 }
 ```
 
@@ -520,7 +522,7 @@ abstract class A {
 
 ##  语法层面上的区别 
 
-- **抽象类**可以提供**成员方法的实现细节**，而**接口**中只能存在**public abstract 方法**；
+- **抽象类**可以提供**成员方法的实现细节**，而**接口**中只能存在**public abstract 方法（在java8的之后接口）**；
 - **抽象类**中的成员变量可以是**各种类型**的，而**接口**中的成员变量只能是**public static final类型**的；
 - **接口**中**不能含有静态代码块**以及**静态方法**，而**抽象类**可以有**静态代码块**和**静态方法**；
 - 一个类只能继承一个抽象类，而一个类却可以实现多个接口。
@@ -685,7 +687,7 @@ public class Son implements Father, Mother {
 ```java
 public class Daughter implements Father{
 
-    class Mother_ implements Mother{
+    class Mother implements Mother{
         
     }
 }
@@ -768,7 +770,6 @@ public class Daughter implements Father{
 
 -  成员内部类中不能存在任何static的变量和方法；
 - 成员内部类是依附于外围类的，所以只有先创建了外围类才能够创建内部类。 
--   
 
 例子：
 
@@ -908,6 +909,7 @@ public class D {
             public void a() {
 
             }
+        
         };
 
         new B() {//继承抽象类B的内部类
@@ -1556,6 +1558,3 @@ public class D {
 这样就合并啦
 
 这也太简单了吧<img src="java面向对象-接口和其他的类/v2-2f4c1f2a5eb83e1368364c9a87aa258c_hd.jpg" alt="img" style="zoom:50%;" />
-
-
-
