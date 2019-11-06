@@ -1,7 +1,10 @@
----
 title: eclipse的常用15个快捷键
-date: 2019-10-28 20:22:49
 tags:
+  - 开发工具探索
+categories:
+  - 开发工具
+author: Jon
+date: 2019-10-28 20:22:00
 ---
 
 # **15 个 Eclipse 常用开发快捷键使用技巧**
