@@ -1,4 +1,4 @@
-title: hexo+admin+windows+linux服务器的综合博客平台
+title: hexo+admin+windows服务器的综合博客平台
 author: Jon
 
 tags:
@@ -21,7 +21,7 @@ date: 2019-10-03 16:43:00
 
 ### 安装Node.js
 
-> * [windows下载链接](https://link.zhihu.com/?target=https%3A//nodejs.org/dist/v9.11.1/node-v9.11.1-x64.msi)
+> * [windows下载链接](https://nodejs.org/dist/v12.14.0/node-v12.14.0-x64.msi)
 >
 > * 下载之后一路next就好，环境变量默认会把帮你配好
 >
