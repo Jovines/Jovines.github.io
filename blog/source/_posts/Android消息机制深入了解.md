@@ -9,7 +9,7 @@ categories:
 
 # 为什么消息机制这么重要呢
 
-其实一个安卓的app也是有自己的**main**方法的<img src="java面向对象-接口和其他的类/v2-2f4c1f2a5eb83e1368364c9a87aa258c_hd-1571843439577.jpg" alt="img" style="zoom:50%;" />，跟一个普通的java程序并没有太大的区别，只不过用户接触不到这个方法，这个方法在**ActivityThread**这个类里面，这个也就是android中所说的**UI线程**。你可能在想一个问题，那么既然是一个有main方法的java程序，那么一整个安卓的app究竟是怎么来运行的呢，如何做到和用户交互并执行这些代码的呢？？（这里涉及到很多东西，本文只讲与**消息机制相关**的，文章**末尾**我会一一解释）<img src="java面向对象-接口和其他的类/v2-70cd1cce150de4d7c1c80c6fea270ec3_hd.jpg" alt="img" style="zoom:50%;" />
+其实一个安卓的app也是有自己的**main**方法的<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-2f4c1f2a5eb83e1368364c9a87aa258c_hd-1571843439577.jpg" alt="img" style="zoom:50%;" />，跟一个普通的java程序并没有太大的区别，只不过用户接触不到这个方法，这个方法在**ActivityThread**这个类里面，这个也就是android中所说的**UI线程**。你可能在想一个问题，那么既然是一个有main方法的java程序，那么一整个安卓的app究竟是怎么来运行的呢，如何做到和用户交互并执行这些代码的呢？？（这里涉及到很多东西，本文只讲与**消息机制相关**的，文章**末尾**我会一一解释）<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-70cd1cce150de4d7c1c80c6fea270ec3_hd.jpg" alt="img" style="zoom:50%;" />
 
 # 消息机制重要的三大成员
 
@@ -38,7 +38,7 @@ categories:
 
 > 主线程是不需要自己`Looper.prepare();`和`Looper.loop();`在ActivityThread的main方法里面就已经执行了类似代码`Looper.prepareMainLooper();`和`Looper.loop();`
 
-下面我会逐一从**源码层面**来分析整个消息机制的主要流程<img src="java面向对象-接口和其他的类/v2-9e6c67c00b10fe66487bdac67d1642e5_hd.jpg" alt="img" style="zoom:50%;" />，会不会很难呢，要不要继续学下去，头发 - -。
+下面我会逐一从**源码层面**来分析整个消息机制的主要流程<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-9e6c67c00b10fe66487bdac67d1642e5_hd.jpg" alt="img" style="zoom:50%;" />，会不会很难呢，要不要继续学下去，头发 - -。
 
 ## Looper.prepare()；
 
@@ -113,7 +113,7 @@ public T get() {
 }
 ```
 
-可能虽然有注释还是有些疑惑，下面我们一一来讲解一下 Why<img src="java面向对象-接口和其他的类/v2-639605533bdb1ecf1c6562677a430554_hd.jpg" alt="img" style="zoom:50%;" />
+可能虽然有注释还是有些疑惑，下面我们一一来讲解一下 Why<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-639605533bdb1ecf1c6562677a430554_hd.jpg" alt="img" style="zoom:50%;" />
 
 首先我们来看看**`ThreadLocalMap map = getMap(t);`中`get(t)`的代码**
 
@@ -127,7 +127,7 @@ ThreadLocalMap getMap(Thread t) {
 
 ### ThreadLocal和ThreadLocalMap
 
-首先我们来看`ThreadLocal`，顾名思义，直接翻译过来就是 “线程本地” ？？<img src="java面向对象-接口和其他的类/v2-a636ef3559b5600fdbaaf48cf794f5e4_hd.jpg" alt="img" style="zoom:50%;" />
+首先我们来看`ThreadLocal`，顾名思义，直接翻译过来就是 “线程本地” ？？<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-a636ef3559b5600fdbaaf48cf794f5e4_hd.jpg" alt="img" style="zoom:50%;" />
 
 我们来看看这个类的介绍注释
 
@@ -152,7 +152,7 @@ ThreadLocalMap getMap(Thread t) {
   
 ```
 
-通过注释我们可以很轻松的理解到，原来这个东西就是为每一个线程创建一个单独的变量副本的呀<img src="java面向对象-接口和其他的类/v2-ee07600d1fc49257fb502f869bb97264_hd.jpg" alt="img" style="zoom:50%;" />。
+通过注释我们可以很轻松的理解到，原来这个东西就是为每一个线程创建一个单独的变量副本的呀<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-ee07600d1fc49257fb502f869bb97264_hd.jpg" alt="img" style="zoom:50%;" />。
 
 我们来看看到底怎么使用
 
@@ -199,7 +199,7 @@ public class Main {
 }
 ```
 
-通过上面的注释就足以理解这个东西的用法，这时候我们回到安卓来看看消息机制这里的设计，是不是就一下子恍然大悟了<img src="java面向对象-接口和其他的类/v2-790d03f584a1de8717e02e56547e38ca_hd.jpg" alt="img" style="zoom:50%;" />，我这再梳理一下
+通过上面的注释就足以理解这个东西的用法，这时候我们回到安卓来看看消息机制这里的设计，是不是就一下子恍然大悟了<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-790d03f584a1de8717e02e56547e38ca_hd.jpg" alt="img" style="zoom:50%;" />，我这再梳理一下
 
 * 首先Lopper中是有一个`sThreadLocal`
 
@@ -218,7 +218,7 @@ public class Main {
   }
   ```
 
-  看，这是不是就很清晰了<img src="java面向对象-接口和其他的类/v2-8312b637ba6407992515ffa42b56391d_hd.jpg" alt="img" style="zoom:50%;" />
+  看，这是不是就很清晰了<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-8312b637ba6407992515ffa42b56391d_hd.jpg" alt="img" style="zoom:50%;" />
 
 
 
@@ -267,7 +267,7 @@ static class Entry extends WeakReference<ThreadLocal<?>> {
 }
 ```
 
-这里你可以看到这里是直接继承WeakReference弱引用这个类的，那为什么要这么设计呢？<img src="java面向对象-接口和其他的类/v2-5f1a5d4ebb5a0c3d2751ee342dd09d71_hd.jpg" alt="img" style="zoom:50%;" />
+这里你可以看到这里是直接继承WeakReference弱引用这个类的，那为什么要这么设计呢？<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-5f1a5d4ebb5a0c3d2751ee342dd09d71_hd.jpg" alt="img" style="zoom:50%;" />
 
 这里我大致的说一下，ThreadLocal是为了每个线程中的对象副本服务的，一旦我不需要使用ThreadLocal这个对象了，那么我肯定会将ThreadLocal对象的强引用去掉，以防止内存泄漏，但是这个如果不这么设计，如果有一个线程的生命周期比ThreadLocal长，那么必定会持有ThreadLocal的引用，这样就会导致内存泄漏，ThreadLocal没有被使用但是却无法被GC回收。相比之下，这样设计就不会出现这个问题。
 
@@ -408,7 +408,7 @@ public void quit() {
 }
 ```
 
-恍然大悟！！！！！！！<img src="java面向对象-接口和其他的类/v2-4d2cb53368cc8b322c3075d23d1e0c34_hd-1571843599481.jpg" alt="img" style="zoom:50%;" />
+恍然大悟！！！！！！！<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-4d2cb53368cc8b322c3075d23d1e0c34_hd-1571843599481.jpg" alt="img" style="zoom:50%;" />
 
 ## handler.sendMessage()
 
@@ -485,7 +485,7 @@ private boolean enqueueMessage(@NonNull MessageQueue queue, @NonNull Message msg
 
 ### handler.post()
 
-还是直接看代码，如果上面的理解了这个就非常简单了<img src="java面向对象-接口和其他的类/v2-8312b637ba6407992515ffa42b56391d_hd.jpg" alt="img" style="zoom:50%;" />，只有一些区别
+还是直接看代码，如果上面的理解了这个就非常简单了<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-8312b637ba6407992515ffa42b56391d_hd-3736965.jpg" alt="img" style="zoom:50%;" />，只有一些区别
 
 ```java
 public final boolean post(@NonNull Runnable r) {
@@ -518,7 +518,7 @@ public void dispatchMessage(@NonNull Message msg) {
 }
 
 private static void handleCallback(Message message) {
-    message.callback.run();
+    message.callback.run();//这里直接执行了runnable的run方法
 }
 ```
 
@@ -526,4 +526,4 @@ private static void handleCallback(Message message) {
 
 # 结尾
 
-文章开头留下的悬念我想这下已经很清晰了，主线程中的main方法调用了Looper.loop,正是有这个无限循环的存在才会不会想一个简单的java程序一样，执行完了main里面的代码程序就结束了，而`prepareMainLooper	`,正是为主线程（UI线程）准备了一个不可以退出的Looper。而这就可以说明Android 的是由事件驱动的，looper.loop() 不断地接收事件、处理事件，每一个点击触摸或者说Activity的生命周期都是运行在 Looper.loop() 的控制之下，如果它停止了，应用也就停止了。只能是某一个消息或者说对消息的处理阻塞了 Looper.loop()，而不是 Looper.loop() 阻塞它。**也就说我们的代码其实就是在这个循环里面去执行的**，所以你在你的子线程要使用消息机制接受消息的话，最好将Looper.loop()放到你要直接执行的所有代码后面，不然没有执行qiut方法，后面的代码就不会执行。<img src="java面向对象-接口和其他的类/v2-ca9bf81c0e81a09cf4f6dfaacd13ce04_hd.jpg" alt="img" style="zoom: 67%;" />真逊，原来这么简单，是吧。
+文章开头留下的悬念我想这下已经很清晰了，主线程中的main方法调用了Looper.loop,正是有这个无限循环的存在才会不会想一个简单的java程序一样，执行完了main里面的代码程序就结束了，而`prepareMainLooper	`,正是为主线程（UI线程）准备了一个不可以退出的Looper。而这就可以说明Android 的是由事件驱动的，looper.loop() 不断地接收事件、处理事件，每一个点击触摸或者说Activity的生命周期都是运行在 Looper.loop() 的控制之下，如果它停止了，应用也就停止了。只能是某一个消息或者说对消息的处理阻塞了 Looper.loop()，而不是 Looper.loop() 阻塞它。**也就说我们的代码其实就是在这个循环里面去执行的**，所以你在你的子线程要使用消息机制接受消息的话，最好将Looper.loop()放到你要直接执行的所有代码后面，不然没有执行qiut方法，后面的代码就不会执行。<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-ca9bf81c0e81a09cf4f6dfaacd13ce04_hd.jpg" alt="img" style="zoom: 67%;" />真逊，原来这么简单，是吧，看来还是要好好学习下去，知识++。
