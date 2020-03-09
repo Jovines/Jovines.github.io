@@ -127,6 +127,8 @@ ThreadLocalMap getMap(Thread t) {
 
 ### ThreadLocal和ThreadLocalMap
 
+Entry是ThreadLocalMap的静态内部类，ThreadLocalMap是ThreadLocal的静态内部类
+
 首先我们来看`ThreadLocal`，顾名思义，直接翻译过来就是 “线程本地” ？？<img src="Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/v2-a636ef3559b5600fdbaaf48cf794f5e4_hd.jpg" alt="img" style="zoom:50%;" />
 
 我们来看看这个类的介绍注释
@@ -207,7 +209,7 @@ public class Main {
   static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
   ```
 
-  理解了上面小Demo,就能知道这个`sThreadLocal`的存在是为了方便在每一个线程存一个Looper副本
+  理解了上面小Demo,就能知道因为这个`sThreadLocal`的存在，我们就可以在每一个线程存一个Looper副本
 
   ```java
   private static void prepare(boolean quitAllowed) {
@@ -412,7 +414,7 @@ public void quit() {
 
 ## handler.sendMessage()
 
-看发送消息之前我们需要先看看Handler的构造方法
+看发送消息之前我们需要先看看**Handler的构造方法**
 
 ```java
 //无参构造函数
@@ -439,7 +441,7 @@ public Handler(@Nullable Callback callback, boolean async) {
 }
 ```
 
-可以看出Handler在那个线程创建，它就会直接绑定哪个线程的MessageQueue，之后它`sendMessage()`就可以直接放到这个MessageQueue里面
+可以看出**Handler在那个线程创建**，它就会**直接绑定哪个线程的MessageQueue**，之后它`sendMessage()`就可以**直接放到这个MessageQueue里面**
 
 还是直接来看`sendMessage()`的代码
 
