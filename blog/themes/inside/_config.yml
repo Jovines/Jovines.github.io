@@ -89,7 +89,7 @@ profile:
   email: jonstree@outlook.com
 
   # You can set Avatar URL directly
-  # avatar: avatar.jpg
+  avatar: https://avatars3.githubusercontent.com/u/44845663?s=460&u=db14b496e2810ce64d33f18d8e040ba1cecfec36&v=4
 
   bio: If I found the export, I could lead you to walk together.
 
@@ -100,7 +100,7 @@ menu:
   Search: /search
   # About: /about
   # Links: /links
-  # Github: https://github.com/Treeeeeeee
+  # Github: https://github.com/JonTree
 
 # Social media URL
 # Try to sort by changing the order of the keys
@@ -110,7 +110,7 @@ sns:
   # If you use hexo-generator-feed, `sns.feed` can be left blank
   # and the theme will try to get `hexo.config.feed.path`.
   feed:
-  github: https://github.com/Treeeeeeee
+  github: https://github.com/JonTree
   twitter:
   facebook:
   instagram:
