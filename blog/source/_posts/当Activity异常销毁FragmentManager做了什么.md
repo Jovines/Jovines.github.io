@@ -5,7 +5,10 @@ tags:
 - 查漏补缺
 categories:
 - Android
+thumbnail: ../当Activity异常销毁FragmentManager做了什么/image-20200327042035621.png
 ---
+
+
 
 最近在做项目的时候因为`Activity`和`FragmentManager`，使项目遇到了一些问题，`Activity`异常销毁重启之后，上次加载进去的`Fragment`也依然存在`FragmentManager`当中，但是在`Activity`中的初始化函数仍然会生成新的`fragment`进去。以此导致了界面出现了重复加载的问题。
 

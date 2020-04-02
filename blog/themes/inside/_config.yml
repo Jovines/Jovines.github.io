@@ -94,7 +94,6 @@ profile:
   bio: If I found the export, I could lead you to walk together.
 
 # Sidebar navigation links
-
 menu:
   Home: /
   Search: /search
@@ -132,10 +131,10 @@ footer:
   copyright: '&copy; 2019 • <a href="">Jon</a>'
 
   # Set to false to hide Hexo link.
-  powered: false
+  # powered: false
 
   # Set to false to hide theme link.
-  theme: false
+  # theme: false
 
   # Custom text.
   custom: Every cloud has a silver lining
@@ -242,7 +241,7 @@ assets:
 # Table of content, enabled by default, set to `false` to disable.
 toc:
   # The depth of toc, default to `3`, maximum to `4`.
-  # depth: 3
+   depth: 4
 
   # Showing index before title, eg. 1.1 title, default to `true`
   # index: true
@@ -299,7 +298,7 @@ comments:
   livere:
     uid: MTAyMC80NjkwNC8yMzQwNQ==
   #   # LiveRe script, default to `https://cdn-city.livere.com/js/embed.dist.js`
-    # script: https://cdn-city.livere.com/js/embed.dist.js
+  #   script:
   #   # Autoload, default to `true`, set to `false` to display a button
     autoload: true
 

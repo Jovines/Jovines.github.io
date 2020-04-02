@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const cheerio = require('cheerio');
 const gravatar = require('hexo/lib/plugins/helper/gravatar');
+const { date } = require('hexo/lib/plugins/helper/date');
 const urlFor = require('hexo/lib/plugins/helper/url_for');
 const utils = require('./utils');
 const pkg = require('../package.json');
@@ -11,7 +11,7 @@ const resources = require('../source/_resources.json');
 module.exports = function (hexo) {
   hexo.on('generateBefore', function () {
     const site = hexo.config;
-    const theme = hexo.theme.config;
+    const theme = Object.assign(hexo.theme.config || {}, site.theme_config);
     const email = theme.profile && theme.profile.email || site.email || '';
     const feed = site.feed ? urlFor.call(this, site.feed.path) : '';
     const result = utils.parseConfig(configSchema, theme, {
@@ -64,12 +64,11 @@ module.exports = function (hexo) {
       // plugins comes first to ensure that their libs is ready when executing dynamic code.
       ...(result.plugins || []),
       ...resources.styles,
-      ...resources.scripts,
-      resources.locales[site.language]
+      ...resources.scripts
     ];
 
-    if (theme.appearance.font && theme.appearance.font.url)
-      result.plugins.unshift({ tag: 'link', href: theme.appearance.font.url });
+    if (result.appearance.font && result.appearance.font.url)
+      result.plugins.unshift({ tag: 'link', href: result.appearance.font.url });
 
     {
       const plugins = { $t: [] };
@@ -87,7 +86,9 @@ module.exports = function (hexo) {
           if (plugin.src) plugin.src = urlFn(plugin.src);
           if (plugin.href) plugin.href = urlFn(plugin.href);
           if (plugin.code) plugin.code = loadSnippet(plugin.code);
-          (plugin.tag === 'script' ? scripts : styles).push(utils.tag(plugin));
+
+          const { tag, code, ...attrs } = plugin;
+          (tag === 'script' ? scripts : styles).push(utils.htmlTag(tag, attrs, code));
         }
 
         /**
@@ -102,16 +103,9 @@ module.exports = function (hexo) {
          * }
          */
         else {
-          const $ = cheerio.load(loadSnippet(plugin.template), { decodeEntities: false });
           const index = plugins.$t.length;
 
-          $.root().children('script').each(function () {
-            const $script = $(this),
-              html = $script.html();
-
-            if (html) $script.replaceWith(utils.snippet(html));
-          });
-          plugins.$t.push(utils.minifyHtml($.html()));
+          plugins.$t.push(utils.minifyHtml(loadSnippet(plugin.template)));
 
           (Array.isArray(plugin.position) ? plugin.position : [plugin.position])
             .forEach(p => (plugins[p] || (plugins[p] = [])).push(index));
@@ -130,13 +124,39 @@ module.exports = function (hexo) {
     result.runtime = {
       // root selector
       selector: resources.root,
+      styles: resources.class,
       hash: utils.md5([
         ...hexo.locals.getters.pages().sort('-date').toArray(),
         ...hexo.locals.getters.posts().sort('-date').toArray()
       ].filter(utils.published).map(i => i.updated.toJSON()).join('')
         + JSON.stringify(result)
         + pkg.version
-        , 6)
+        , 6),
+
+      // runtime helpers
+      hasComments: !!(result.comments || result.plugins && result.plugins.comments),
+      hasReward: !!result.reward,
+      hasToc: !!result.toc,
+      copyright: result.copyright,
+      dateHelper: date.bind({
+        page: { lang: utils.localeId(site.language, true) },
+        config: site
+      }),
+      uriReplacer: new function () {
+        let assetsFn = src => src;
+        if (result.assets) {
+          const prefix = result.assets.prefix ? result.assets.prefix + '/' : ''
+          const suffix = result.assets.suffix || ''
+          assetsFn = src => prefix + `${src}${suffix}`.replace(/\/{2,}/g, '/')
+        }
+
+        return (src, assetPath) => {
+          assetPath = assetPath ? assetPath + '/' : ''
+
+          // skip both external and absolute path
+          return /^(\/\/?|http|data\:image)/.test(src) ? src : assetsFn(`${assetPath}${src}`);
+        }
+      }
     };
 
     hexo.theme.config = result;
