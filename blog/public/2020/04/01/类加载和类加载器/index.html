@@ -10,24 +10,24 @@
 <link rel="manifest" href="/manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="description" content="类加载流程链接和加载时并行的，没有谁先再后的先后顺序，涉及到源码中对链接的方法的调用 加载”加载“是”类加机制”的第一个过程，在加载阶段，虚拟机主要完成三件事：  通过一个类的全限定名来获取其定义的二进制字节流 将这个字节流所代表的的静态存储结构转化为方法区的运行时数据结构（初始化） 在堆中生成一个代表这个类的Class对象，作为方法区中这些数据的访问入口。  相对于类加载的其他阶段而言，加载阶段">
+<meta name="description" content="类加载流程链接和加载时并行的，没有谁先再后的先后顺序，涉及到源码中对链接的方法的调用 加载”加载“是”类加机制”的第一个过程，在加载阶段，虚拟机主要完成三件事：  通过一个类的全限定名来获取其定义的二进制字节流 将这个字节流所代表的的静态存储结构转化为方法区中的运行时数据结构（初始化） 在堆中生成一个代表这个类的Class对象，作为方法区中这些数据的访问入口。  至于JVM的内存管理和分区结构大致">
 <meta name="keywords" content="干货">
 <meta property="og:type" content="website">
 <meta property="og:title" content="类加载和类加载器">
 <meta property="og:url" content="https://treeeeeeee.github.io/2020/04/01/类加载和类加载器/index.html">
 <meta property="og:site_name" content="Jon&#39;s Blog">
-<meta property="og:description" content="类加载流程链接和加载时并行的，没有谁先再后的先后顺序，涉及到源码中对链接的方法的调用 加载”加载“是”类加机制”的第一个过程，在加载阶段，虚拟机主要完成三件事：  通过一个类的全限定名来获取其定义的二进制字节流 将这个字节流所代表的的静态存储结构转化为方法区的运行时数据结构（初始化） 在堆中生成一个代表这个类的Class对象，作为方法区中这些数据的访问入口。  相对于类加载的其他阶段而言，加载阶段">
+<meta property="og:description" content="类加载流程链接和加载时并行的，没有谁先再后的先后顺序，涉及到源码中对链接的方法的调用 加载”加载“是”类加机制”的第一个过程，在加载阶段，虚拟机主要完成三件事：  通过一个类的全限定名来获取其定义的二进制字节流 将这个字节流所代表的的静态存储结构转化为方法区中的运行时数据结构（初始化） 在堆中生成一个代表这个类的Class对象，作为方法区中这些数据的访问入口。  至于JVM的内存管理和分区结构大致">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://avatars3.githubusercontent.com/u/44845663?s=460&u=db14b496e2810ce64d33f18d8e040ba1cecfec36&v=4">
-<meta property="og:updated_time" content="2020-04-01T09:57:06.137Z">
+<meta property="og:updated_time" content="2020-04-02T16:14:37.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="类加载和类加载器">
-<meta name="twitter:description" content="类加载流程链接和加载时并行的，没有谁先再后的先后顺序，涉及到源码中对链接的方法的调用 加载”加载“是”类加机制”的第一个过程，在加载阶段，虚拟机主要完成三件事：  通过一个类的全限定名来获取其定义的二进制字节流 将这个字节流所代表的的静态存储结构转化为方法区的运行时数据结构（初始化） 在堆中生成一个代表这个类的Class对象，作为方法区中这些数据的访问入口。  相对于类加载的其他阶段而言，加载阶段">
+<meta name="twitter:description" content="类加载流程链接和加载时并行的，没有谁先再后的先后顺序，涉及到源码中对链接的方法的调用 加载”加载“是”类加机制”的第一个过程，在加载阶段，虚拟机主要完成三件事：  通过一个类的全限定名来获取其定义的二进制字节流 将这个字节流所代表的的静态存储结构转化为方法区中的运行时数据结构（初始化） 在堆中生成一个代表这个类的Class对象，作为方法区中这些数据的访问入口。  至于JVM的内存管理和分区结构大致">
 <meta name="twitter:image" content="https://avatars3.githubusercontent.com/u/44845663?s=460&u=db14b496e2810ce64d33f18d8e040ba1cecfec36&v=4">
 <link href="//fonts.googleapis.com/css?family=Baloo+Bhaijaan|Inconsolata|Josefin+Sans|Montserrat" rel="stylesheet">
 <link href="/styles.d1f4718a192abf1f2afd.css" rel="stylesheet">
 <link rel="stylesheet" href="/theme.6814db2ccf672c87c4fb.css">
-<script src="/config.0c72c7808fa220cacb8f.js"></script>
+<script src="/config.f0fd46fa77e5be36a021.js"></script>
 <script async src="//www.googletagmanager.com/gtag/js?id=G-MRV9628GNV"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-MRV9628GNV');</script></head>
 <body lang="en">
