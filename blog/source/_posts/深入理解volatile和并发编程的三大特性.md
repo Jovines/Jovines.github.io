@@ -5,6 +5,7 @@ tags:
 - java并发
 categories:
 - Java
+thumbnail: ../深入理解volatile和并发编程的三大特性/images.webp
 ---
 
 #  一切之前

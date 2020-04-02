@@ -1,39 +1,50 @@
 <!doctype html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
 <meta charset="utf-8">
-<title>基于酷q平台的管理机器人 - Jon&#39;s Blog</title>
+<title>基于酷q平台的管理机器人 - Jon's Blog</title>
 <base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<link rel="canonical" href="https://treeeeeeee.github.io/2019/10/01/基于酷q平台的管理机器人/">
+<link rel="canonical" href="https://treeeeeeee.github.io/2019/10/01/%E5%9F%BA%E4%BA%8E%E9%85%B7q%E5%B9%B3%E5%8F%B0%E7%9A%84%E7%AE%A1%E7%90%86%E6%9C%BA%E5%99%A8%E4%BA%BA/">
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
 <link rel="manifest" href="/manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="description" content="酷Q机器人 自从samrtQQ下线之后，很多QQ机器人都失效了。 但是最近又比较想用这样一个机器人来管理减轻自己的一些工作，于是千方百计的我发现了酷Q。 这里附上官网链接 开发以及注意事项 SDK的选择酷q提供了多种SDK但是都是我不常用的，官方的支持的SDK是E语言，这语言emmmm好，都好，写，都可以写。虽然提供了java的sdk但是java版本始终不是正统，咬牙学了一天E语言，最后还是吐了。">
-<meta name="keywords" content="世界这么大，当然要多去看看">
+
+<meta name="description" content="酷Q机器人 自从samrtQQ下线之后，很多QQ机器人都失效了。 但是最近又比较想用这样一个机器人来管理减轻自己的一些工作，于是千方百计的我发现了酷Q。 这里附上官网链接 开发以及注意事项SDK的选择酷q提供了多种SDK但是都是我不常用的，官方的支持的SDK是E语言，这语言emmmm好，都好，写，都可以写。虽然提供了java的sdk但是java版本始终不是正统，咬牙学了一天E语言，最后还是吐了。没">
 <meta property="og:type" content="website">
 <meta property="og:title" content="基于酷q平台的管理机器人">
-<meta property="og:url" content="https://treeeeeeee.github.io/2019/10/01/基于酷q平台的管理机器人/index.html">
+<meta property="og:url" content="https://treeeeeeee.github.io/2019/10/01/%E5%9F%BA%E4%BA%8E%E9%85%B7q%E5%B9%B3%E5%8F%B0%E7%9A%84%E7%AE%A1%E7%90%86%E6%9C%BA%E5%99%A8%E4%BA%BA/index.html">
 <meta property="og:site_name" content="Jon&#39;s Blog">
-<meta property="og:description" content="酷Q机器人 自从samrtQQ下线之后，很多QQ机器人都失效了。 但是最近又比较想用这样一个机器人来管理减轻自己的一些工作，于是千方百计的我发现了酷Q。 这里附上官网链接 开发以及注意事项 SDK的选择酷q提供了多种SDK但是都是我不常用的，官方的支持的SDK是E语言，这语言emmmm好，都好，写，都可以写。虽然提供了java的sdk但是java版本始终不是正统，咬牙学了一天E语言，最后还是吐了。">
-<meta property="og:locale" content="en">
+<meta property="og:description" content="酷Q机器人 自从samrtQQ下线之后，很多QQ机器人都失效了。 但是最近又比较想用这样一个机器人来管理减轻自己的一些工作，于是千方百计的我发现了酷Q。 这里附上官网链接 开发以及注意事项SDK的选择酷q提供了多种SDK但是都是我不常用的，官方的支持的SDK是E语言，这语言emmmm好，都好，写，都可以写。虽然提供了java的sdk但是java版本始终不是正统，咬牙学了一天E语言，最后还是吐了。没">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://avatars3.githubusercontent.com/u/44845663?s=460&u=db14b496e2810ce64d33f18d8e040ba1cecfec36&v=4">
-<meta property="og:updated_time" content="2019-12-30T03:16:47.531Z">
+<meta property="article:published_time" content="2019-10-01T12:15:14.000Z">
+<meta property="article:modified_time" content="2019-12-30T03:16:47.531Z">
+<meta property="article:author" content="Jon">
+<meta property="article:tag" content="世界这么大，当然要多去看看">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于酷q平台的管理机器人">
-<meta name="twitter:description" content="酷Q机器人 自从samrtQQ下线之后，很多QQ机器人都失效了。 但是最近又比较想用这样一个机器人来管理减轻自己的一些工作，于是千方百计的我发现了酷Q。 这里附上官网链接 开发以及注意事项 SDK的选择酷q提供了多种SDK但是都是我不常用的，官方的支持的SDK是E语言，这语言emmmm好，都好，写，都可以写。虽然提供了java的sdk但是java版本始终不是正统，咬牙学了一天E语言，最后还是吐了。">
 <meta name="twitter:image" content="https://avatars3.githubusercontent.com/u/44845663?s=460&u=db14b496e2810ce64d33f18d8e040ba1cecfec36&v=4">
+
+
 <link href="//fonts.googleapis.com/css?family=Baloo+Bhaijaan|Inconsolata|Josefin+Sans|Montserrat" rel="stylesheet">
-<link href="/styles.d1f4718a192abf1f2afd.css" rel="stylesheet">
-<link rel="stylesheet" href="/theme.6814db2ccf672c87c4fb.css">
-<script src="/config.167dba95f6522f2100c6.js"></script>
+<link href="/styles.e4c22be5bb2c26eab146.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/theme.fd07f88173d488a992d7.css" is="theme">
+
+
+<script src="/config.07434bb9eb99e5bcd64b.js"></script>
+
+
 <script async src="//www.googletagmanager.com/gtag/js?id=G-MRV9628GNV"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-MRV9628GNV');</script></head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-MRV9628GNV');</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
 <body lang="en">
 <is-a></is-a>
-<script src="/runtime.caef73fae70e33459c5a.js"></script>
-<script src="/polyfills.28555e618578fe61f50a.js"></script>
-<script src="/main.a6ef31dc523c76e5118c.js"></script>
+<script src="/runtime.1720a40670866f12654e.js"></script>
+<script src="/polyfills.69a7b8a907a7ac9da988.js"></script>
+<script src="/main.12c3a04fa47641f902c2.js"></script>
 </body>
 </html>

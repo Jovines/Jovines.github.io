@@ -5,6 +5,7 @@ tags:
 - git常用命令备份
 categories:
 - git
+thumbnail: ../git常用命令以及如何在idea上可视化操作git/2429e4d2661e60027537aea0077f6e40.png
 ---
 
 # git
@@ -25,7 +26,7 @@ categories:
 
 存放已经提交的数据，push 的时候，就是把这个区的数据 push 到远程仓库了。
 
-![git 数据流程图示意图](git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E5%9C%A8idea%E4%B8%8A%E5%8F%AF%E8%A7%86%E5%8C%96%E6%93%8D%E4%BD%9Cgit/2429e4d2661e60027537aea0077f6e40.png)
+![2429e4d2661e60027537aea0077f6e40](git常用命令以及如何在idea上可视化操作git/2429e4d2661e60027537aea0077f6e40.png)
 
 ## 常用命令讲解
 

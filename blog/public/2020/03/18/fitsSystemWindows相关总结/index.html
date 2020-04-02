@@ -1,39 +1,50 @@
 <!doctype html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
 <meta charset="utf-8">
-<title>fitsSystemWindows相关总结 - Jon&#39;s Blog</title>
+<title>fitsSystemWindows相关总结 - Jon's Blog</title>
 <base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<link rel="canonical" href="https://treeeeeeee.github.io/2020/03/18/fitsSystemWindows相关总结/">
+<link rel="canonical" href="https://treeeeeeee.github.io/2020/03/18/fitsSystemWindows%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/">
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
 <link rel="manifest" href="/manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="description" content="先上结论1android:fitsSystemWindows=&quot;true&quot;   默认情况下，设置它的view会添加一些内边距，用来留出一些系统的window的区域，例如状态栏或者底部的虚拟键盘  日常我们最常见的就只有这两个，但不排除其他或者后面会出现的一些新的系统window要留出，所以一旦设置这个属性之后你自己设置的所有的padding都会失效，上下左右全部，记住是全部  另外在xml文件里，">
-<meta name="keywords" content="归纳总结">
+
+<meta name="description" content="先上结论1android:fitsSystemWindows&#x3D;&quot;true&quot;默认情况下，设置它的view会添加一些内边距，用来留出一些系统的window的区域，例如状态栏或者底部的虚拟键盘日常我们最常见的就只有这两个，但不排除其他或者后面会出现的一些新的系统window要留出，所以一旦设置这个属性之后你自己设置的所有的padding都会失效，上下左右全部，记住是全部另外在xml文件里，配置了这个属性">
 <meta property="og:type" content="website">
 <meta property="og:title" content="fitsSystemWindows相关总结">
-<meta property="og:url" content="https://treeeeeeee.github.io/2020/03/18/fitsSystemWindows相关总结/index.html">
+<meta property="og:url" content="https://treeeeeeee.github.io/2020/03/18/fitsSystemWindows%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Jon&#39;s Blog">
-<meta property="og:description" content="先上结论1android:fitsSystemWindows=&quot;true&quot;   默认情况下，设置它的view会添加一些内边距，用来留出一些系统的window的区域，例如状态栏或者底部的虚拟键盘  日常我们最常见的就只有这两个，但不排除其他或者后面会出现的一些新的系统window要留出，所以一旦设置这个属性之后你自己设置的所有的padding都会失效，上下左右全部，记住是全部  另外在xml文件里，">
-<meta property="og:locale" content="en">
+<meta property="og:description" content="先上结论1android:fitsSystemWindows&#x3D;&quot;true&quot;默认情况下，设置它的view会添加一些内边距，用来留出一些系统的window的区域，例如状态栏或者底部的虚拟键盘日常我们最常见的就只有这两个，但不排除其他或者后面会出现的一些新的系统window要留出，所以一旦设置这个属性之后你自己设置的所有的padding都会失效，上下左右全部，记住是全部另外在xml文件里，配置了这个属性">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://avatars3.githubusercontent.com/u/44845663?s=460&u=db14b496e2810ce64d33f18d8e040ba1cecfec36&v=4">
-<meta property="og:updated_time" content="2020-04-02T02:10:13.208Z">
+<meta property="article:published_time" content="2020-03-18T15:50:07.000Z">
+<meta property="article:modified_time" content="2020-04-02T02:10:13.208Z">
+<meta property="article:author" content="Jon">
+<meta property="article:tag" content="归纳总结">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fitsSystemWindows相关总结">
-<meta name="twitter:description" content="先上结论1android:fitsSystemWindows=&quot;true&quot;   默认情况下，设置它的view会添加一些内边距，用来留出一些系统的window的区域，例如状态栏或者底部的虚拟键盘  日常我们最常见的就只有这两个，但不排除其他或者后面会出现的一些新的系统window要留出，所以一旦设置这个属性之后你自己设置的所有的padding都会失效，上下左右全部，记住是全部  另外在xml文件里，">
 <meta name="twitter:image" content="https://avatars3.githubusercontent.com/u/44845663?s=460&u=db14b496e2810ce64d33f18d8e040ba1cecfec36&v=4">
+
+
 <link href="//fonts.googleapis.com/css?family=Baloo+Bhaijaan|Inconsolata|Josefin+Sans|Montserrat" rel="stylesheet">
-<link href="/styles.d1f4718a192abf1f2afd.css" rel="stylesheet">
-<link rel="stylesheet" href="/theme.6814db2ccf672c87c4fb.css">
-<script src="/config.167dba95f6522f2100c6.js"></script>
+<link href="/styles.e4c22be5bb2c26eab146.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/theme.fd07f88173d488a992d7.css" is="theme">
+
+
+<script src="/config.07434bb9eb99e5bcd64b.js"></script>
+
+
 <script async src="//www.googletagmanager.com/gtag/js?id=G-MRV9628GNV"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-MRV9628GNV');</script></head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-MRV9628GNV');</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
 <body lang="en">
 <is-a></is-a>
-<script src="/runtime.caef73fae70e33459c5a.js"></script>
-<script src="/polyfills.28555e618578fe61f50a.js"></script>
-<script src="/main.a6ef31dc523c76e5118c.js"></script>
+<script src="/runtime.1720a40670866f12654e.js"></script>
+<script src="/polyfills.69a7b8a907a7ac9da988.js"></script>
+<script src="/main.12c3a04fa47641f902c2.js"></script>
 </body>
 </html>

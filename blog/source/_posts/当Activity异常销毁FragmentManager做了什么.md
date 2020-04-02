@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
 #### 被恢复了？？
 
-<img src="%E5%BD%93Activity%E5%BC%82%E5%B8%B8%E9%94%80%E6%AF%81FragmentManager%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/v2-308d4b287931127b020ac4cc861a1757_hd-1571843355924.jpg" alt="img" style="zoom:50%;" />我们来看看`FragmentActivity`中`onSaveInstanceState`干了什么
+<img src="当Activity异常销毁FragmentManager做了什么/v2-308d4b287931127b020ac4cc861a1757_hd-1571843355924.jpg" alt="v2-308d4b287931127b020ac4cc861a1757_hd-1571843355924" style="zoom:50%;" />我们来看看`FragmentActivity`中`onSaveInstanceState`干了什么
 
 ```java
 protected void onSaveInstanceState(@NonNull Bundle outState) {
