@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Jon's Blog
+title: Jovines's Blog
 subtitle:
 description:
 keywords:
-author: Jon
+author: Jovines
 language: en
 timezone:
 
@@ -80,7 +80,7 @@ theme: inside
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:JonTree/JonTree.github.io.git
+  repo: git@github.com:Jovines/Jovines.github.io.git
   branch: master
 
   
@@ -95,7 +95,7 @@ search:
 admin:
   username: 1246634075@qq.com
   password_hash: $2a$10$teqmn5ODm2XN4z6H66Oq3e9qBon94HhDFKbBZGHll1PmaUtCade8G
-  secret: jon
+  secret: jovines
   deployCommand: './hexo-deploy.sh'
   
   

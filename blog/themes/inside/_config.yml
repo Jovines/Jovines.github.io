@@ -86,7 +86,7 @@ appearance:
 profile:
   # `email` is used for gravatar(https://en.gravatar.com),
   # fallback to `hexo.config.email` if not specified
-  email: jonstree@outlook.com
+  email: jovines@outlook.com
 
   # You can set Avatar URL directly
   avatar: https://avatars3.githubusercontent.com/u/44845663?s=460&u=db14b496e2810ce64d33f18d8e040ba1cecfec36&v=4
@@ -99,7 +99,7 @@ menu:
   Search: /search
   # About: /about
   # Links: /links
-  # Github: https://github.com/JonTree
+  # Github: https://github.com/Jovines
 
 # Social media URL
 # Try to sort by changing the order of the keys
@@ -109,7 +109,7 @@ sns:
   # If you use hexo-generator-feed, `sns.feed` can be left blank
   # and the theme will try to get `hexo.config.feed.path`.
   feed:
-  github: https://github.com/JonTree
+  github: https://github.com/Jovines
   twitter:
   facebook:
   instagram:
@@ -128,7 +128,7 @@ sns:
 # Sidebar footer copyright info
 footer:
   # Set to false to hide.
-  copyright: '&copy; 2019 • <a href="">Jon</a>'
+  copyright: '&copy; 2019 • <a href="">Jovines</a>'
 
   # Set to false to hide Hexo link.
   # powered: false
