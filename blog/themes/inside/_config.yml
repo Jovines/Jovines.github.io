@@ -86,10 +86,10 @@ appearance:
 profile:
   # `email` is used for gravatar(https://en.gravatar.com),
   # fallback to `hexo.config.email` if not specified
-  email: jovines@outlook.com
+  email: 1246634075@qq.com
 
   # You can set Avatar URL directly
-  avatar: https://avatars3.githubusercontent.com/u/44845663?s=460&u=db14b496e2810ce64d33f18d8e040ba1cecfec36&v=4
+  avatar:
 
   bio: If I found the export, I could lead you to walk together.
 
@@ -97,7 +97,7 @@ profile:
 menu:
   Home: /
   Search: /search
-  # About: /about
+  About: /about
   # Links: /links
   # Github: https://github.com/Jovines
 
@@ -123,15 +123,15 @@ sns:
   soundcloud:
   myspace:
   weibo:
-  qq: 1246634075
+  qq:
 
 # Sidebar footer copyright info
 footer:
   # Set to false to hide.
-  copyright: '&copy; 2019 • <a href="">Jovines</a>'
+  copyright: '&copy; 2020 • <a href="https://github.com/Jovines">Jovines</a>'
 
   # Set to false to hide Hexo link.
-  # powered: false
+  powered: false
 
   # Set to false to hide theme link.
   # theme: false
@@ -300,7 +300,7 @@ comments:
   #   # LiveRe script, default to `https://cdn-city.livere.com/js/embed.dist.js`
   #   script:
   #   # Autoload, default to `true`, set to `false` to display a button
-    autoload: true
+    autoload: false
 
 
 # ---------------------------------------------------------------
@@ -319,7 +319,7 @@ data_prefix:
 data_dir:
 
 # Favicon, default to `favicon.ico`
-favicon: images/favicon.ico
+favicon: avatar.ico
 
 # Google analytics
 ga: G-MRV9628GNV
