@@ -20,7 +20,7 @@ reward:
   bitcoin: Bitcoin
 
 comments:
-  load: 加载 %s
+  load: 加载 %s 评论系统
   load_faild: 加载 %s 失败，点击尝试重新加载
   livere: Livere
   disqus: Disqus
