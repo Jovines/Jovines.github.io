@@ -12,7 +12,7 @@ categories:
 #### 事件向下依次传递顺序
 
 1. `Activity`
-2. `PhoneWindow`
+2. `PhoneWindow`（这层基本啥也没干）
 3. `ViewGroup`
 4. `View`
 
@@ -20,10 +20,10 @@ categories:
 
 * `dispatchTouchEvent`
 
-  - 返回true表示下层消耗了事件
-  - 返回false表示下层消耗了事件
+  - 返回true表示下层或者自己消耗了事件
+  - 返回false表示下层或者自己没有消耗事件
 
-* `onInterceptTouchEvent`（View没有这个方法）
+* `onInterceptTouchEvent`（`View`没有这个方法，只有`ViewGroup`有）
 
   * 返回true表示拦截事件
 
@@ -315,7 +315,7 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
 }
 ```
 
-呼~~好累，这么一分析啥原理不久都来了，什么解决滑动冲突的方法还不是信手拈来，什么外部拦截或者内部拦截的原理不久一下子清晰了。累了，去泡杯茶再来。
+呼~~好累，这么一分析啥原理不就都来了，什么解决滑动冲突的方法还不是信手拈来，什么外部拦截或者内部拦截的原理不就一下子清晰了。累了，去泡杯茶再来。
 
 
 
