@@ -7,7 +7,7 @@ categories:
 - Android
 ---
 
-# 事件传递流程
+## 事件传递流程
 
 #### 事件向下依次传递顺序
 
@@ -28,7 +28,7 @@ categories:
   * 返回true表示拦截事件
 
   * 返回false表示放行事件
-  * 如果当前`ViewGroup`拦截了一个事件序列中的任意一个事件后，那么在同一个事件序列当中，此方法不会被再次调用，并且，后续事件不会传递下去，返回结果表示是否拦截当前事件。
+  * 如果当前`ViewGroup`拦截了一个事件序列中的任意一个事件后，那么在同一个事件序列当中，此方法不会被再次调用，并且，后续事件不会再传递给传递下去，返回结果表示是否拦截当前事件。
 
 * `onTouchEvent`
 
@@ -36,7 +36,7 @@ categories:
 
   * 由于View没有拦截方法，所以一旦分发到它会直接调用此方法，View会默认消耗掉事件
 
-# `ViewGroup`主要Tag说明
+## `ViewGroup`主要Tag说明
 
 ### `mFirstTouchTarget`
 
@@ -76,7 +76,7 @@ if (actionMasked == MotionEvent.ACTION_DOWN
 
 调用`requestDisallowInterceptTouchEvent`方法之后，会改变该tag的值
 
-# 整个`ViewGroup的dispatchTouchEvent`详细分析
+## 整个`ViewGroup的dispatchTouchEvent`详细分析
 
 这是最复杂的部分也是解决滑动冲突的关键部分，代码很长，一步步看，
 
@@ -251,8 +251,6 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
             //super.dispatchTouchEvent(event)
             handled = dispatchTransformedTouchEvent(ev, canceled, null,
                     TouchTarget.ALL_POINTER_IDS);
-            //----------------------------------------------------------
-            //后面代码对事件分发流程理解应该影响不大，就不看了
         } else {
             TouchTarget predecessor = null;
             TouchTarget target = mFirstTouchTarget;
@@ -261,14 +259,30 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
                 if (alreadyDispatchedToNewTouchTarget && target == newTouchTarget) {
                     handled = true;
                 } else {
+                    //mFirstTouchTarget不为空，说明有子元素想要处理这个事件，
+            		//子元素的dispatch方法在Down来临的时候,返回了true
+            		//但是此时由于当前这个ViewGroup，发现后续的事件里面，有它想拦截的
+            		//那么此时就会在前面的拦截方法里返回true拦截这个事件
+                    //那么此时intercepted就为true，下面这个cancelChild就会为true
+                    //这个变量表示是否要取消对确认要接收的子元素接收后续事件的资格
                     final boolean cancelChild = resetCancelNextUpFlag(target.child)
                             || intercepted;
+                    //调用dispatchTransformedTouchEvent并传参数cancelChild
+                    //这样子View就可以收到ACTION_CANCEL的消息了，收到这个消息之后
+                    //这个子元素就可以和当前这个事件序列说再见了
                     if (dispatchTransformedTouchEvent(ev, cancelChild,
                             target.child, target.pointerIdBits)) {
                         handled = true;
                     }
+                    
                     if (cancelChild) {
                         if (predecessor == null) {
+                            //这里赋值为next，但是这个情况下next为null
+                            //所以就相当于把mFirstTouchTarget重置了
+                            //那么当后续的事件来的时候就会默认拦截
+                            //这也是为什么当onInterceptTouchEvent拦截
+                            //任意事件一次后，后面的事件统统都不会再往下传的原因
+                            //而且onInterceptTouchEvent不会再一次被调用了
                             mFirstTouchTarget = next;
                         } else {
                             predecessor.next = next;
@@ -302,3 +316,44 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
 ```
 
 呼~~好累，这么一分析啥原理不久都来了，什么解决滑动冲突的方法还不是信手拈来，什么外部拦截或者内部拦截的原理不久一下子清晰了。累了，去泡杯茶再来。
+
+
+
+**Two thousand years later..........................**
+
+
+
+# 解决滑动冲突
+
+有了上面缜密的一步一步的分析，接下来就可以很明白的理解Android开发艺术探索上面说的两种解决滑动冲突的方法
+
+### 外部拦截？
+
+很简单，重写`onInterceptTouchEvent`不拦截Down事件，保证子元素能够接收到，一旦你判断你需要这个事件以及后面的事件的时候，返回true拦截，夺回所有权就好，但是如果你如果你在UP事件的时候再决定夺回所有权时，没啥意义呀根本，而且还会导致子元素不能成功收到UP事件，但是单击监听失效，所以最好别这么蛮横在这时候来夺回所有权。
+
+### 内部拦截？
+
+所有的事件`ViewGroup`都不拦截，在子元素处理拦截逻辑，并调用父布局的`requestDisallowInterceptTouchEvent`方法来影响父布局的FLAG_DISALLOW_INTERCEPT这个标志位，以此来影响父布局的，让父布局们听自己的号召。
+
+> 注意：调用父布局`requestDisallowInterceptTouchEvent`这个方法之后，父布局也会通知它的父布局，还是看看源码，很简单，不摆了，困
+>
+> ```java
+> public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+> 
+>     if (disallowIntercept == ((mGroupFlags & FLAG_DISALLOW_INTERCEPT) != 0)) {
+>         // We're already in this state, assume our ancestors are too
+>         return;
+>     }
+> 
+>     if (disallowIntercept) {
+>         mGroupFlags |= FLAG_DISALLOW_INTERCEPT;
+>     } else {
+>         mGroupFlags &= ~FLAG_DISALLOW_INTERCEPT;
+>     }
+> 
+>     // Pass it up to our parent
+>     if (mParent != null) {
+>         mParent.requestDisallowInterceptTouchEvent(disallowIntercept);
+>     }
+> }
+> ```
