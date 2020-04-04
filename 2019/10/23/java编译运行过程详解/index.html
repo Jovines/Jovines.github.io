@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>java编译运行过程详解 - Jon's Blog</title>
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="canonical" href="https://treeeeeeee.github.io/2019/10/23/java%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3/">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="description" content="java整个编译以及运行的过程相当繁琐，我就举一个简单的例子说明： Java程序从源文件创建到程序运行要经过两大步骤： 源文件由编译器编译成字节码（ByteCode）；字节码由java虚拟机解释运行。因为java程序既要编译同时也要经过JVM的解释运行，所以说Java被称为半解释语言（ “semi-interpreted” language） 123456789101112131415161718">
+<meta property="og:type" content="website">
+<meta property="og:title" content="java编译运行过程详解">
+<meta property="og:url" content="https://treeeeeeee.github.io/2019/10/23/java%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Jon&#39;s Blog">
+<meta property="og:description" content="java整个编译以及运行的过程相当繁琐，我就举一个简单的例子说明： Java程序从源文件创建到程序运行要经过两大步骤： 源文件由编译器编译成字节码（ByteCode）；字节码由java虚拟机解释运行。因为java程序既要编译同时也要经过JVM的解释运行，所以说Java被称为半解释语言（ “semi-interpreted” language） 123456789101112131415161718">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://avatars3.githubusercontent.com/u/44845663?s=460&u=db14b496e2810ce64d33f18d8e040ba1cecfec36&v=4">
+<meta property="article:published_time" content="2019-10-22T16:40:00.000Z">
+<meta property="article:modified_time" content="2019-12-30T02:50:50.785Z">
+<meta property="article:author" content="Jon">
+<meta property="article:tag" content="课件附页">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars3.githubusercontent.com/u/44845663?s=460&u=db14b496e2810ce64d33f18d8e040ba1cecfec36&v=4">
+
+
+<link href="//fonts.googleapis.com/css?family=Baloo+Bhaijaan|Inconsolata|Josefin+Sans|Montserrat" rel="stylesheet">
+<link href="/styles.e4c22be5bb2c26eab146.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/theme.fd07f88173d488a992d7.css" is="theme">
+
+
+<script src="/config.07434bb9eb99e5bcd64b.js"></script>
+
+
+<script async src="//www.googletagmanager.com/gtag/js?id=G-MRV9628GNV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-MRV9628GNV');</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body lang="en">
+<is-a></is-a>
+<script src="/runtime.1720a40670866f12654e.js"></script>
+<script src="/polyfills.69a7b8a907a7ac9da988.js"></script>
+<script src="/main.12c3a04fa47641f902c2.js"></script>
+</body>
+</html>

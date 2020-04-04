@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<title>命令行后台运行程序命令 - Jovines's Blog</title>
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="canonical" href="https://jonvines.github.io/2019/10/03/linux%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F/">
+<link rel="icon" type="image/x-icon" href="/avatar.ico">
+
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="description" content="后台执行命令：&amp;和nohup归纳：ps -ef或者grep查看进程kill XX杀死进程，XX替换为进程PID命令后加&amp;后台运行，但生命周期受窗口限制nohup 命令 &amp;完全后台运行原文链接，本文归纳梳理，便于自己记忆。 后台运行命令&amp;断开链接或者关闭窗口仍然会终止程序  在命令后面加上&amp; 实现后台运行。例如：  1sh test.sh &amp; 适合在后">
+<meta property="og:type" content="website">
+<meta property="og:title" content="命令行后台运行程序命令">
+<meta property="og:url" content="https://jonvines.github.io/2019/10/03/linux%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F/index.html">
+<meta property="og:site_name" content="Jovines&#39;s Blog">
+<meta property="og:description" content="后台执行命令：&amp;和nohup归纳：ps -ef或者grep查看进程kill XX杀死进程，XX替换为进程PID命令后加&amp;后台运行，但生命周期受窗口限制nohup 命令 &amp;完全后台运行原文链接，本文归纳梳理，便于自己记忆。 后台运行命令&amp;断开链接或者关闭窗口仍然会终止程序  在命令后面加上&amp; 实现后台运行。例如：  1sh test.sh &amp; 适合在后">
+<meta property="og:image" content="https://www.gravatar.com/avatar/b031f31c27dda83f01bd63cebbe8cefb?s=160">
+<meta property="article:published_time" content="2019-10-03T15:50:00.000Z">
+<meta property="article:modified_time" content="2019-12-30T02:50:50.956Z">
+<meta property="article:author" content="Jovines">
+<meta property="article:tag" content="知识就是力量">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.gravatar.com/avatar/b031f31c27dda83f01bd63cebbe8cefb?s=160">
+
+
+<link href="//fonts.googleapis.com/css?family=Baloo+Bhaijaan|Inconsolata|Josefin+Sans|Montserrat" rel="stylesheet">
+<link href="/styles.e4c22be5bb2c26eab146.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/theme.fd07f88173d488a992d7.css" is="theme">
+
+
+<script src="/config.ce31d5836fd47f44b412.js"></script>
+
+
+<script async src="//www.googletagmanager.com/gtag/js?id=G-MRV9628GNV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-MRV9628GNV');</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body lang="zh-Hans">
+<is-a></is-a>
+<script src="/runtime.1720a40670866f12654e.js"></script>
+<script src="/polyfills.69a7b8a907a7ac9da988.js"></script>
+<script src="/main.12c3a04fa47641f902c2.js"></script>
+</body>
+</html>
