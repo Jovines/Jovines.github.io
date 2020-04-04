@@ -300,7 +300,7 @@ comments:
   #   # LiveRe script, default to `https://cdn-city.livere.com/js/embed.dist.js`
   #   script:
   #   # Autoload, default to `true`, set to `false` to display a button
-    autoload: false
+    autoload: true
 
 
 # ---------------------------------------------------------------
